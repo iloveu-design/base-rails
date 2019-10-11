@@ -21,13 +21,8 @@ bin/rails db:setup
 
 서버를 띄우고 http://localhost:3000 에서 확인합니다.
 
-````
+```
 bin/rails s
 ```
 
 ## capistrano 배포 가이드 
-
-```
-$ 
-$ 
-```
