@@ -1,0 +1,17 @@
+%h1 구독자
+
+%table.table
+  %thead
+    %th
+    %th 이름
+    %th 이메일
+    %th
+  %tbody
+    - @subscriptions.each do |subscription|
+      %tr
+        %td
+          %input{ type: 'checkbox' }
+        %td= subscription.name
+        %td= subscription.email
+        %td
+          = link_to '삭제', [:admin, subscription], method: :delete, data: { confirm: '정말 삭제하시겠습니까?' }

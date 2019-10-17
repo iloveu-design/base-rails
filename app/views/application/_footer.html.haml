@@ -1,0 +1,9 @@
+%footer
+  %hr
+  copyright playthat
+
+  %div
+    = form_for Subscription.new do |f|
+      = f.text_field :name, placeholder: '이름'
+      = f.email_field :email, placeholder: '이메일'
+      = f.submit '구독신청'
