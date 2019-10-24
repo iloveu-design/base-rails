@@ -1,9 +1,12 @@
-%footer
-  %hr
-  copyright playthat
+%footer{ style: 'background: #eee; padding: 1rem;' }
+  .container-fluid
+    .row
+      .col-sm-6
+        = link_to 'slowalk.co.kr', 'https://slowalk.co.kr'
 
-  %div
-    = form_for Subscription.new do |f|
-      = f.text_field :name, placeholder: '이름'
-      = f.email_field :email, placeholder: '이메일'
-      = f.submit '구독신청'
+      .col-sm-6
+        .text-right
+          = form_for Subscription.new do |f|
+            = f.text_field :name, placeholder: '이름'
+            = f.email_field :email, placeholder: '이메일'
+            = f.submit '구독신청'
