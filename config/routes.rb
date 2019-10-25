@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  get 'pages/home'
+  devise_for :users, :controllers => {
+    :omniauth_callbacks => :omniauth_callbacks
+  }
+
   root 'pages#home'
 
   resources :subscriptions
