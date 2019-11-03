@@ -1,0 +1,9 @@
+= form_for [:admin, @policy] do |f|
+  = f.hidden_field :category
+
+  .form-group
+    = f.text_area :body, 'data-provider': :summernote
+
+  .form-group
+    = link_to '취소', admin_policies_path(category: @policy.category), class: 'btn btn-outline-secondary'
+    = f.button :submit, class: 'btn btn-primary'

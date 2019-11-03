@@ -19,21 +19,24 @@ gem "omniauth-kakao", :path => "vendor/gems/omniauth-kakao"
 
 # tools
 gem 'acts-as-taggable-on', '~> 6.0'
-gem 'summernote-rails', :path => "vendor/gems/summernote-rails"
 
 # activestorage
 gem 'mini_magick', '~> 4.8'
+gem 'image_processing', '~> 1.2'
 
 # js
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
-
-# views
 gem 'sass-rails', '~> 5.0'
 gem 'haml-rails', '~> 1.0'
 gem 'kaminari', '~> 0.17.0'
 gem 'jbuilder', '~> 2.5'
+gem 'bootstrap', '~> 4.3.1'
+gem 'bootstrap_autocomplete_input'
+gem 'simple_form'
+gem 'summernote-rails'
+gem 'cocoon'
 
 # excel
 gem 'axlsx', '2.1.0.pre'

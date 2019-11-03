@@ -1,20 +1,32 @@
 !!!
-%html
+%html{:lang => "ko"}
   %head
-    %title --NAME-- 관리자
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
+    %title Base Rails
     = csrf_meta_tags
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    = csp_meta_tag
     = stylesheet_link_tag    'admin', media: 'all'
     = javascript_include_tag 'admin'
-
   %body
+    %nav.navbar.navbar-dark.fixed-top.bg-dark.flex-md-nowrap.p-0.shadow
+      %a.navbar-brand.col-sm-3.col-md-2.mr-0{:href => "#"} Base Rails
+      %ul.navbar-nav.px-3
+        %li.nav-item.text-nowrap
+          - if user_signed_in?
+            = link_to '로그아웃', destroy_user_session_path, class: "nav-link", method: :delete
+          - else
+            = link_to '로그인', new_user_session_path, class: "nav-link"
 
-    %header  
-      = render 'header'
-    %section
-      .container-fluid
-        = yield
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    .container-fluid{:style => "padding-top: 40px"}
+      .row
+        = render "menu"
+        %main.col.px-0{:role => "main", :style => "min-height: 100vh"}
+          - if notice
+            %section.bg-success.text-white.p-4
+              = notice
+          - if alert
+            %section.bg-danger.text-white.p-4
+              = alert
+          = yield

@@ -1,0 +1,18 @@
+= render 'page_header', title: "#{@category_name} 관리", action: link_to('신규 등록', new_admin_policy_path(category: @category), class: 'btn btn-primary')
+
+%section.p-4
+  %p #{@category_name} 개정 이력
+  %table.table.table-bordered
+    %thead
+      %tr
+        %th 구분
+        %th 등록일시
+        %th
+    %tbody
+      - @policies.each do |policy|
+        %tr
+          %td= policy.id
+          %td= l policy.created_at
+          %td
+            = link_to '수정', [:edit, :admin, policy], class: 'text-secondary mr-1'
+            = link_to '삭제', [:admin, policy], method: :delete, class: 'text-danger', data: { confirm: '정말로 삭제하시겠습니까?' }

@@ -1,0 +1,5 @@
+= render 'page_header', title: "#{Policy.category_name(@policy.category)} 신규 등록", action: link_to('목록으로', admin_policies_path(category: @policy.category), class: 'btn btn-primary')
+
+%section.p-4
+  %p #{Policy.category_name(@policy.category)}을 작성해 주세요.
+  = render 'form'

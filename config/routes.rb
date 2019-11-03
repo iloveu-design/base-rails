@@ -7,8 +7,14 @@ Rails.application.routes.draw do
 
   resources :subscriptions
 
+  get 'pages/terms'
+  get 'pages/privacy'
+
   namespace :admin do
     root 'subscriptions#index'
+
+    resources :users
+    resources :policies
     resources :subscriptions
   end
 end
