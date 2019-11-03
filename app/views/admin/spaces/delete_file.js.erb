@@ -1,0 +1,5 @@
+<% if @type == 'image' %>
+  $('#event-image-attachment').detach();
+<% else %>
+  $('#active_storage_attachment_<%= @file_id %>.<%= @type %>_attachments').detach();
+<% end %>

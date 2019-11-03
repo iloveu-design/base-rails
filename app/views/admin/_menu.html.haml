@@ -13,6 +13,11 @@
 
     %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
       %span 공간 관리
+    %ul.nav.flex-column
+      %li.nav-item
+        = link_to '공간 관리', admin_spaces_path, class: "nav-link"
+      %li.nav-item
+        = link_to '대관 일정 관리', admin_reservations_path, class: "nav-link"
 
     %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
       %span 프로그램 관리

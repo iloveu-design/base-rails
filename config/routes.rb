@@ -14,6 +14,14 @@ Rails.application.routes.draw do
     root 'subscriptions#index'
 
     resources :users
+
+    resources :spaces do
+      member do
+        get :delete_file
+      end
+    end
+    resources :reservations
+
     resources :policies
     resources :subscriptions
   end

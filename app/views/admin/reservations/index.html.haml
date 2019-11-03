@@ -1,0 +1,24 @@
+= render 'page_header', title: '대관 일정 관리', action: link_to('일정 추가', new_admin_reservation_path, class: 'btn btn-primary')
+
+%section.p-4
+  %p 대관일정을 관리할 수 있습니다.
+  %table.table.table-bordered
+    %thead
+      %tr
+        %th 구분
+        %th 신청자
+        %th 내용
+        %th 시작 일시
+        %th 종료 일시
+        %th
+    %tbody
+      - @reservations.each do |reservation|
+        %tr[reservation]
+          %td.w-100px= reservation.id
+          %td= reservation.name
+          %td= reservation.body
+          %td= l reservation.start_on if reservation.start_on
+          %td= l reservation.end_on if reservation.end_on
+          %td.text-nowrap
+            = link_to '수정', [:edit, :admin, reservation], class: 'btn btn-secondary btn-sm'
+            = link_to '삭제', [:admin, reservation], class: 'btn btn-outline-danger btn-sm', data: { confirm: I18n.t('msgs.confirm_destroy') }

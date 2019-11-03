@@ -1,0 +1,94 @@
+.p-4.bg-light
+  회사소개 > 공간 소개 > #{@space.name}에 노출되는 기본 정보를 관리할 수 있습니다.
+
+.border-bottom.p-4
+  = simple_form_for [:admin, @space], wrapper: :horizontal_form, wrapper_mappings: { file: :horizontal_file } do |f|
+    .form-group.row
+      .col-sm-3
+        = f.label :image
+      .col-sm-5
+        = f.file_field :image, class: 'form-control-file', accept: 'image/png,image/gif,image/jpeg'
+      .col-sm-4
+        #event-image-attachment
+          - if @space.image.attached?
+            .card
+              = image_tag @space.image.variant(resize: '300x'), class: 'card-img-top'
+              .card-body
+                .card-text
+                  = link_to '삭제', delete_file_admin_space_path(@space, type: 'image', file_id: @space.image.id), remote: true, class: 'text-secondary'
+
+    = f.input :phone, placeholder: '02-562-8220 (오전9시 ~ 오후6시)'
+    = f.input :email, placeholder: 'slowalk@slowalk.co.kr (상시 문의 가능)'
+    = f.input :time, placeholder: '오전 7시 ~ 오후 11시'
+    = f.input :seats, placeholder: '그룹식: 30명 ~ 50명 / 강의식 : 40명 ~ 60명'
+    = f.input :price, as: :text, placeholder: "평일 - 1시간: 10만원 / 종일 : 70만원\n주말, 휴일 - 1시간: 11만원 / 종일 : 77만원"
+    = f.input :min_time, placeholder: '3시간 이상 예약 가능'
+    = f.input :advantages
+    = f.input :manager, placeholder: '임순미 실장'
+    .form-group.row.mb-0
+      .col-sm-9.offset-sm-3
+        = f.button :submit, class: 'btn btn-primary'
+
+.p-4.bg-light
+  회사소개 > 공간 소개 > #{@space.name} > 공간 사진에 노출되는 정보를 관리할 수 있습니다.
+
+.border-bottom.p-4
+  = simple_form_for [:admin, @space], wrapper: :horizontal_form, wrapper_mappings: { file: :horizontal_file } do |f|
+    .form-group.row.border-bottom.pb-4
+      .col-sm-3
+        = f.label :event_photos
+      .col-sm-9
+        .mb-4
+          = f.file_field :event_photos, as: :file, multiple: true, accept: 'image/png,image/gif,image/jpeg'
+        .row
+          - @space.event_photos.each do |event|
+            .event_photos_attachments.col-3[event]
+              .card
+                = image_tag event.variant(resize: "200x"), class: 'card-top-img'
+                .card-body
+                  .card-text
+                    = link_to '삭제', delete_file_admin_space_path(@space, type: 'event_photos', file_id: event.id), remote: true, class: 'text-secondary'
+
+    .form-group.row.border-bottom.py-4
+      .col-sm-3
+        = f.label :cafe_photos
+      .col-sm-9
+        .mb-4
+          = f.file_field :cafe_photos, as: :file, multiple: true, accept: 'image/png,image/gif,image/jpeg'
+        .row
+          - @space.cafe_photos.each do |cafe|
+            .cafe_photos_attachments.col-3[cafe]
+              .card
+                = image_tag cafe.variant(resize: "200x"), class: 'card-top-img'
+                .card-body
+                  .card-text
+                    = link_to '삭제', delete_file_admin_space_path(@space, type: 'cafe_photos', file_id: cafe.id), remote: true, class: 'text-secondary'
+
+    .form-group.row.py-4
+      .col-sm-3
+        = f.label :usage_photos
+      .col-sm-9
+        .mb-4
+          = f.file_field :usage_photos, as: :file, multiple: true, accept: 'image/png,image/gif,image/jpeg'
+        .row
+          - @space.usage_photos.each do |usage|
+            .usage_photos_attachments.col-3[usage]
+              .card
+                = image_tag usage.variant(resize: "200x"), class: 'card-top-img'
+                .card-body
+                  .card-text
+                    = link_to '삭제', delete_file_admin_space_path(@space, type: 'usage_photos', file_id: usage.id), remote: true, class: 'text-secondary'
+
+    .form-group.row.mb-0
+      .col-sm-9.offset-sm-3
+        = f.button :submit, class: 'btn btn-primary'
+
+.p-4.bg-light
+  회사소개 > 공간 소개 > #{@space.name} > 이용 방법 및 주의사항에 노출되는 정보를 관리할 수 있습니다.
+
+.border-bottom.p-4
+  = simple_form_for [:admin, @space], wrapper: :horizontal_form do |f|
+    = f.input :precautions, as: :text, placeholder: "준비 및 정리시간 무료 제공\n고급커피 무한 리필\n기본문구 및 집기 이용 가능"
+    .form-group.row.mb-0
+      .col-sm-9.offset-sm-3
+        = f.button :submit, class: 'btn btn-primary'
