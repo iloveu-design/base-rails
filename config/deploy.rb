@@ -10,7 +10,7 @@ set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 set :ssh_options, {forward_agent: true}
 
 # set :bundle_binstubs, nil
-set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads public/files}
+set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle storage public/system public/files}
 
 set :keep_releases, 5
 
