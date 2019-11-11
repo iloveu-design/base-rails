@@ -24,9 +24,8 @@
         = render "menu"
         %main.col.px-0{:role => "main", :style => "min-height: 100vh"}
           - if notice
-            %section.bg-success.text-white.p-4
-              = notice
+            .alert.alert-success.alert-dismissible.position-absolute{ role: 'alert', style: 'width: 100%' }= notice
           - if alert
-            %section.bg-danger.text-white.p-4
-              = alert
+            .alert.alert-danger.alert-dismissible.position-absolute{ role: 'alert', style: 'width: 100%' }= alert
+
           = yield
