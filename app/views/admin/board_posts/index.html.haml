@@ -1,0 +1,25 @@
+= render 'page_header', title: '게시물', action: link_to('게시물 추가하기', new_admin_board_post_path, class: 'btn btn-primary')
+
+.p-4
+  .pb-4.d-flex.justify-content-between.align-items-center
+    %h4 게시물
+    %div
+      = form_tag admin_board_posts_path, method: :get do
+        = select_tag :board, options_for_select([''] + Board.all.map{|b| [b.name, b.id]}, params[:board]), { onchange: "this.form.submit();", class: 'form-control' }
+
+  %table.table.table-bordered.table-striped
+    %thead
+      %tr
+        %th ID
+        %th 게시판
+        %th 제목
+        %th
+    %tbody
+      - @board_posts.each do |board_post|
+        %tr[board_post]
+          %td= board_post.id
+          %td= board_post.board.name
+          %td= board_post.title
+          %td.text-nowrap
+            = link_to '수정', edit_admin_board_post_path(board_post), class: 'btn btn-outline-primary btn-sm'
+            = link_to '삭제', admin_board_post_path(board_post), method: :delete, class: 'btn btn-outline-danger btn-sm'

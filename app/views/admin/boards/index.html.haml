@@ -1,0 +1,22 @@
+= render 'page_header', title: '게시판', action: link_to('게시판 추가하기', new_admin_board_path, class: 'btn btn-primary')
+
+.p-4
+  .pb-4
+    %h4 게시판
+
+  %table.table.table-bordered.table-striped
+    %thead
+      %tr
+        %th ID
+        %th slug
+        %th 이름
+        %th
+    %tbody
+      - @boards.each do |board|
+        %tr[board]
+          %td= board.id
+          %td= board.slug
+          %td= board.name
+          %td.text-nowrap
+            = link_to '수정', edit_admin_board_path(board), class: 'btn btn-outline-primary btn-sm'
+            = link_to '삭제', admin_board_path(board), method: :delete, class: 'btn btn-outline-danger btn-sm'

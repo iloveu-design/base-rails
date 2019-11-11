@@ -19,6 +19,7 @@ gem "omniauth-kakao", :path => "vendor/gems/omniauth-kakao"
 
 # tools
 gem 'acts-as-taggable-on', '~> 6.0'
+gem 'ancestry'
 
 # activestorage
 gem 'mini_magick', '~> 4.8'

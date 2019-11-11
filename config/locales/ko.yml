@@ -10,6 +10,16 @@ ko:
           has_many: "%{record}가 존재하기 때문에 삭제할 수 없습니다"
     attributes:
       user:
+      board:
+        name: 게시판명
+        slug: 영문주소
+      board/post:
+        board_id: 게시판
+        title: 제목
+        body: 본문
+      board/category:
+        name: 분류명
+        slug: 영문주소
       course:
         menu: 메뉴
         category: 카테고리
@@ -62,10 +72,14 @@ ko:
           consulting: 컨설팅 관련 FAQ
 
   msgs:
-    saved: 저장하였습니다
-    confirm_destroy: 정말 삭제하시겠습니까?
-    destroyed: 삭제하였습니다
-    errored: 오류가 발생하였습니다
+    confirm:
+      destroy: 정말 삭제하시겠습니까?
+    success:
+      saved: 저장하였습니다
+      destroyed: 삭제하였습니다
+    error:
+      errored: 오류가 발생하였습니다
+      allowed_only_lower_case: 띄어쓰기 없이 소문자로 입력해주세요.
 
   date:
     abbr_day_names:

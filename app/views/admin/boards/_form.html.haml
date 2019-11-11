@@ -1,0 +1,18 @@
+= simple_form_for [:admin, @board] do |f|
+  .p-4.border-bottom
+    %h4.pb-2 기본 정보
+    = f.input :name
+    = f.input :slug
+
+  .categories.p-4.border-bottom
+    %h4.pb-2 분류
+    #categories-items.list-group
+      = f.fields_for :categories do |category|
+        = render 'category_fields', f: category
+      .form-group.p-2
+        = link_to_add_association '항목 추가', f, :categories
+
+  .p-4
+    .form-group
+      = f.submit class: 'btn btn-primary'
+      = link_to '취소', admin_boards_path, class: 'btn btn-outline-secondary'

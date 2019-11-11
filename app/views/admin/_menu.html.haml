@@ -23,6 +23,12 @@
       %span 프로그램 관리
 
     %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+      %span 게시판 관리
+    %ul.nav.flex-column
+      %li.nav-item= link_to '게시판 관리', admin_boards_path, class: "nav-link"
+      %li.nav-item= link_to '게시물 관리', admin_board_posts_path, class: "nav-link"
+
+    %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
       %span 약관 및 정책 관리
     %ul.nav.flex-column
       %li.nav-item

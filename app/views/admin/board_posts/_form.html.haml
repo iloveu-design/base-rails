@@ -1,0 +1,9 @@
+.p-4
+  = simple_form_for [:admin, @board_post] do |f|
+    = f.input :board_id, collection: Board.all, include_blank: false
+    = f.input :title
+    = f.input :body, as: :summernote
+
+    .form-group
+      = f.submit class: 'btn btn-primary'
+      = link_to '취소', admin_board_posts_path, class: 'btn btn-outline-secondary'

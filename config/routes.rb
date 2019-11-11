@@ -22,6 +22,9 @@ Rails.application.routes.draw do
     end
     resources :reservations
 
+    resources :boards
+    resources :board_posts
+
     resources :policies
     resources :subscriptions
   end
