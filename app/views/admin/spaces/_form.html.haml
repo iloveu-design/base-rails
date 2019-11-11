@@ -7,7 +7,9 @@
       .col-sm-3
         = f.label :image
       .col-sm-5
-        = f.file_field :image, class: 'form-control-file', accept: 'image/png,image/gif,image/jpeg'
+        .custom-file
+          = f.file_field :image, class: 'custom-file-input', accept: 'image/png,image/gif,image/jpeg'
+          %label.custom-file-label= @space.image.try(:filename)
       .col-sm-4
         #event-image-attachment
           - if @space.image.attached?

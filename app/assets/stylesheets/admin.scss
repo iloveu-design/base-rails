@@ -9,3 +9,7 @@
 .w-100px {
   width: 100px
 }
+
+.custom-file-label::after {
+  content: '파일선택'
+}
