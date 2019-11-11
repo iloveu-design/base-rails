@@ -8,9 +8,4 @@
 //= require bootstrap-autocomplete-input-init
 //= require cocoon
 //= require summernote/summernote-bs4.min
-
-$(document).ready(function() {
-  $('[data-provider="summernote"]').each(function() {
-    $(this).summernote({lang: 'ko-KR', height: 300});
-  });
-});
+//= require summernote-slowalk

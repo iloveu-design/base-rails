@@ -27,5 +27,7 @@ Rails.application.routes.draw do
 
     resources :policies
     resources :subscriptions
+
+    resources :assets, only: [:create, :destroy]
   end
 end
