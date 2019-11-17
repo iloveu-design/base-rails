@@ -12,6 +12,6 @@ class Admin::SettingsController < AdminController
 
     def setting_params
       params.require(:setting).permit(:site_name, :host, :user_limits, :admin_emails,
-        :captcha_enable, :notification_options)
+        :captcha_enable, :notification_options, :op_items)
     end
 end

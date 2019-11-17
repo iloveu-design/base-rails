@@ -20,6 +20,11 @@
       = f.text_area :notification_options, value: YAML.dump(Setting.notification_options), class: "form-control", style: "height: 180px;"
       .form-text
         Use YAML format to config the SMTP_html
+    .form-group
+      %label.control-label 운영 아이템 폼
+      = f.text_area :op_items, value: YAML.dump(Setting.op_items), class: "form-control", style: "height: 180px;"
+      .form-text
+        Use YAML format to config the SMTP_html
 
     .form-group
       = f.submit class: 'btn btn-primary'

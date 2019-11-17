@@ -10,6 +10,9 @@ class Setting < RailsSettings::Base
     logging: true,
     sender_email: "foo@bar.com"
   }
+  field :op_items, type: :hash, default: {
+    main_sliders: { "name" => "enter names here", "title" => "string", "body" => "text", "image" => "image" }
+  }
 
   # Define your fields
   # field :host, type: :string, default: "http://localhost:3000"

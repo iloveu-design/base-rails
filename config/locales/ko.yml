@@ -73,6 +73,11 @@ ko:
         options:
           course: 교육 관련 FAQ
           consulting: 컨설팅 관련 FAQ
+      op_item:
+        seq: 순서
+        title: 제목
+        body: 내용
+        image: 이미지
 
   msgs:
     confirm:

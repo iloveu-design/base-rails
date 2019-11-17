@@ -39,6 +39,7 @@ Rails.application.routes.draw do
       resources :comments, module: :board_posts
     end
 
+    resources :op_items
     resources :policies
     resources :settings
     resources :assets, only: [:create, :destroy]
