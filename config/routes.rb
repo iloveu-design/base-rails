@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'subscriptions#index'
 
-    resources :users
+    resources :users do
+      collection do
+        get :hibernated
+      end
+    end
 
     resources :spaces do
       member do

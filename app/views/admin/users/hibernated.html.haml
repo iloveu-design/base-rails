@@ -1,0 +1,27 @@
+= render 'page_header', title: '휴면 회원', action: nil
+
+.p-4
+  .pb-4
+    %h4 게시판
+
+  %table.table.table-bordered.table-striped
+    %thead
+      %tr
+        %th ID
+        %th 아이디
+        %th 이메일
+        %th 이름
+        %th 가입경로
+        %th 최종로그인
+        %th
+    %tbody
+      - @users.each do |user|
+        %tr[user]
+          %td= user.id
+          %td= user.uid
+          %td= user.email
+          %td= user.name
+          %td= user.provider
+          %td= l ( user.current_sign_in_at || user.last_sign_in_at )
+          %td.text-nowrap
+            = link_to '수정', edit_admin_user_path(user), class: 'btn btn-outline-secondary btn-sm'

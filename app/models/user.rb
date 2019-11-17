@@ -8,6 +8,7 @@ class User < ApplicationRecord
   #validates :name, presence: :true
 
   scope :recent, -> { order("created_at DESC") }
+  scope :hibernated, -> { where(hibernated: true) }
 
   after_create do |obj|
     if obj.role.nil?
