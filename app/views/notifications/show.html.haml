@@ -1,0 +1,8 @@
+.d-flex.justify-content-between
+  %h2
+    = link_to @notification.title, @notification
+  %small
+    = @notification.sender
+    = l @notification.created_at
+%p.mb-1
+  = simple_format @notification.body

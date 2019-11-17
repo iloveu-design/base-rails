@@ -1,0 +1,11 @@
+.list-group
+  - @notifications.each do |notification|
+    .list-group-item.list-group-item-action[notification]
+      .d-flex.justify-content-between
+        %h5
+          = link_to notification.title, notification
+        %small
+          = notification.sender
+          = l notification.created_at
+      %p.mb-1
+        = strip_tags notification.body

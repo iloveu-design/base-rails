@@ -1,0 +1,27 @@
+= render 'page_header', title: '웹알림', action: nil
+
+.p-4
+  .pb-4
+    %h4 게시판
+
+  %table.table.table-bordered.table-striped.table-hover.table-sm
+    %thead
+      %tr
+        %th.text-center ID
+        %th 수신자
+        %th 발신자
+        %th 제목
+        %th 발송일시
+        %th 확인일시
+        %th
+    %tbody
+      - @notifications.each do |notification|
+        %tr[notification]
+          %td.text-center= notification.id
+          %td= notification.user.name
+          %td= notification.sender
+          %td= notification.title
+          %td= l notification.created_at
+          %td= l notification.read_at if notification.read_at
+          %td.text-nowrap
+            = link_to '삭제', admin_notification_path(notification), method: :delete, class: 'btn btn-outline-danger btn-sm', data: { confirm: I18n.t('msgs.confirm.destroy') }

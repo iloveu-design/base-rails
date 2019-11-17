@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook, :naver, :kakao]
 
+  has_many :notifications
+
   #validates :name, presence: :true
 
   scope :recent, -> { order("created_at DESC") }

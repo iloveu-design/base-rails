@@ -2,15 +2,17 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {
     :omniauth_callbacks => :omniauth_callbacks
   }
-
-  root 'pages#home'
-
+  resources :users do
+    resources :notifications, shallow: true
+  end
   resources :subscriptions
 
   get 'pages/terms'
   get 'pages/privacy'
 
-  namespace :admin do
+  root 'pages#home'
+
+  namespace :admin, path: 'rbadmin' do
     root 'subscriptions#index'
 
     resources :users do
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
         get :hibernated
       end
     end
+    resources :notifications
 
     resources :spaces do
       member do
