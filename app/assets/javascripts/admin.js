@@ -9,6 +9,7 @@
 //= require cocoon
 //= require summernote/summernote-bs4.min
 //= require summernote-slowalk
+//= require turbolinks
 
 $(document).ready(function() {
   bsCustomFileInput.init();
