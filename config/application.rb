@@ -18,5 +18,7 @@ module StartRails
 
     config.time_zone = 'Asia/Seoul'
     config.i18n.default_locale = :ko
+
+    config.active_job.queue_adapter = :sidekiq
   end
 end

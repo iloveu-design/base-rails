@@ -31,6 +31,9 @@ Rails.application.routes.draw do
     resources :assets, only: [:create, :destroy]
 
     if Rails.env.development? || Rails.env.staging?
+      require 'sidekiq/web'
+      require 'sidekiq/cron/web'
+      mount Sidekiq::Web => '/sidekiq'
       mount LetterOpenerWeb::Engine, at: "/emails"
     end
   end

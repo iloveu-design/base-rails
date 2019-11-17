@@ -1,0 +1,4 @@
+hibernate_users:
+  cron: "0 20 * * * Asia/Seoul"
+  class: "HibernateUsersJob"
+  queue: default
