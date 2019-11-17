@@ -29,5 +29,9 @@ Rails.application.routes.draw do
     resources :subscriptions
 
     resources :assets, only: [:create, :destroy]
+
+    if Rails.env.development? || Rails.env.staging?
+      mount LetterOpenerWeb::Engine, at: "/emails"
+    end
   end
 end
