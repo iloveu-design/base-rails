@@ -21,6 +21,10 @@ class User < ApplicationRecord
     'general' => '일반회원'
   }
 
+  def admin?
+    role == 'admin'
+  end
+
   def self.set_oauth(auth)
     user = User.new do |user|
       user.provider = auth["provider"]
