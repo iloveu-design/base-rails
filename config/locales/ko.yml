@@ -20,6 +20,8 @@ ko:
       board/category:
         name: 분류명
         slug: 영문주소
+      comment:
+        body: 댓글
       course:
         menu: 메뉴
         category: 카테고리

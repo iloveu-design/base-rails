@@ -1,1 +1,12 @@
-= render 'page_header', title: "게시판 > #{@board.name}", action: link_to('목록으로', admin_boards_path, class: 'btn btn-primary')
+= render 'page_header', title: "게시판 > #{@board.name} > 게시물", action: link_to('목록으로', admin_board_posts_path, class: 'btn btn-primary')
+
+.p-4
+  %h2= @board_post.title
+
+  .p-4.border
+    = raw @board_post.body
+
+.p-4
+  %h3 댓글
+  = render "admin/comments/form", commentable: @board_post
+  = render "admin/comments/comments", commentable: @board_post

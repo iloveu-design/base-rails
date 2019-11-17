@@ -1,5 +1,5 @@
 class Admin::BoardPostsController < AdminController
-  before_action :set_board_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_member, only: [:show, :edit, :update, :destroy]
   def index
     @board_posts = Board::Post.all
 
@@ -10,6 +10,10 @@ class Admin::BoardPostsController < AdminController
 
   def new
     @board_post = Board::Post.new
+  end
+
+  def show
+    @board = @board_post.board
   end
 
   def edit
@@ -40,7 +44,7 @@ class Admin::BoardPostsController < AdminController
 
   private
 
-    def set_board_post
+    def set_member
       @board_post = Board::Post.find(params[:id])
     end
 

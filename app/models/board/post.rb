@@ -1,4 +1,6 @@
 class Board::Post < ApplicationRecord
+  include Commentable
+
   belongs_to :board
 
   validates :board, presence: true

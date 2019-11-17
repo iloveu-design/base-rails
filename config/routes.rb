@@ -34,7 +34,9 @@ Rails.application.routes.draw do
     resources :reservations
 
     resources :boards
-    resources :board_posts
+    resources :board_posts do
+      resources :comments, module: :board_posts
+    end
 
     resources :policies
     resources :subscriptions

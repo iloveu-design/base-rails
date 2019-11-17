@@ -1,0 +1,6 @@
+- commentable.comments.each do |comment|
+  .py-2[comment]
+    %h5= comment.user.email
+    %div= strip_tags comment.body
+    .d-flex
+      = link_to '삭제', [:admin, commentable, comment], method: :delete, class: 'text-secondary', data: { confirm: I18n.t('msgs.confirm.destroy') }

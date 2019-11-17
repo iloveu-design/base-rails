@@ -1,0 +1,3 @@
+= simple_form_for [:admin, commentable, Comment.new] do |f|
+  = f.input :body, placeholder: '댓글을 남겨주세요'
+  = f.submit class: 'btn btn-outline-secondary'

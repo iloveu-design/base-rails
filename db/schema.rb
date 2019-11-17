@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_17_032102) do
+ActiveRecord::Schema.define(version: 2019_11_17_035903) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2019_11_17_032102) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "comments_count", default: 0
     t.index ["board_category_id"], name: "index_board_posts_on_board_category_id"
     t.index ["board_id"], name: "index_board_posts_on_board_id"
     t.index ["user_id"], name: "index_board_posts_on_user_id"
@@ -70,6 +71,17 @@ ActiveRecord::Schema.define(version: 2019_11_17_032102) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["slug"], name: "index_boards_on_slug", unique: true
+  end
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "commentable_type", null: false
+    t.bigint "commentable_id", null: false
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "follows", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
