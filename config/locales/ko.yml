@@ -16,6 +16,7 @@ ko:
       board/post:
         board_id: 게시판
         title: 제목
+        tag_list: 태그
         body: 본문
       board/category:
         name: 분류명

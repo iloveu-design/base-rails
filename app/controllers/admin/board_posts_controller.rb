@@ -50,7 +50,7 @@ class Admin::BoardPostsController < AdminController
 
     def board_post_params
       params.require(:board_post).permit(
-        :board_id, :title, :body
+        :board_id, :title, :body, :tag_list
       )
     end
 end
