@@ -8,12 +8,13 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js" %>
   </head>
   <body>
     <%= render 'header' %>
     <main role="main">
       <section>
-        <div class="container">
+        <div class="container-fluid">
           <% flash.each do |key, value| %>
             <div class="alert alert-<%= key %>">
               <%= value %>
@@ -22,7 +23,7 @@
         </div>
       </section>
       <section>
-        <div class="container">
+        <div class="container-fluid">
           <%= yield %>
         </div>
       </section>

@@ -7,6 +7,12 @@ class User < ApplicationRecord
 
   has_many :notifications
 
+  has_many :follows
+  has_many :active_relationships, foreign_key: 'follower_id', class_name: 'Follow', dependent: :destroy
+  has_many :passive_relationships, foreign_key: 'followed_id', class_name: 'Follow', dependent: :destroy
+  has_many :followings, through: :active_relationships, source: :followed_user
+  has_many :followers, through: :passive_relationships, source: :follower_user
+
   #validates :name, presence: :true
 
   scope :recent, -> { order("created_at DESC") }
@@ -43,5 +49,17 @@ class User < ApplicationRecord
 
   def self.find_sns_oauth(uid, provider)
     where(uid: uid, provider: provider).first
+  end
+
+  def follow!(other)
+    other.followers << self
+  end
+
+  def following?(other)
+    Follow.where(followed_id: other.id, follower_id: self.id).any?
+  end
+
+  def unfollow!(other)
+    Follow.where(followed_id: other.id, follower_id: self.id).delete_all
   end
 end

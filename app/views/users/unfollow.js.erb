@@ -1,0 +1,1 @@
+$("[data-js-follow-user-<%= @user.id%>]").parent('form').replaceWith("<%= j render 'following_button', other: @user %>");

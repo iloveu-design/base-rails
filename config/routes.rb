@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   }
   resources :users do
     resources :notifications, shallow: true
+    member do
+      post :follow
+      post :unfollow
+    end
   end
   resources :subscriptions
 

@@ -1,0 +1,5 @@
+- if user_signed_in?
+  - if current_user.following?(other)
+    = button_to 'unfollow', unfollow_user_path(other), class: 'btn btn-outline-danger btn-sm', remote: true, data: { "js-follow-user-#{other.id}" => "" }
+  - else
+    = button_to 'follow', follow_user_path(other), class: 'btn btn-primary btn-sm', remote: true, data: { "js-follow-user-#{other.id}" => "" }

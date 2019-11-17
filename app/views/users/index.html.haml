@@ -1,0 +1,10 @@
+.list-group
+  - @users.each do |user|
+    .list-group-item
+      %h5= user.email
+
+      .d-flex.justify-content-start.align-items-center
+        .mr-2
+          = render 'following_button', other: user
+        .mr-2
+          #{user.followings.count} followings, #{user.followers.count} followers
