@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   root 'pages#home'
 
-  namespace :admin, path: 'rbadmin' do
+  namespace :admin, path: 'radmin' do
     root 'subscriptions#index'
 
     resources :users do
@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       end
     end
     resources :notifications
+    resources :subscriptions
 
     resources :spaces do
       member do
@@ -39,8 +40,7 @@ Rails.application.routes.draw do
     end
 
     resources :policies
-    resources :subscriptions
-
+    resources :settings
     resources :assets, only: [:create, :destroy]
 
     if Rails.env.development? || Rails.env.staging?

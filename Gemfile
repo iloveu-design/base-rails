@@ -18,6 +18,7 @@ gem 'omniauth-naver'
 gem "omniauth-kakao", :path => "vendor/gems/omniauth-kakao"
 
 # tools
+gem "rails-settings-cached", "~> 2.0"
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'ancestry'
 

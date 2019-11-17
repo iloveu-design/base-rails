@@ -1,0 +1,25 @@
+= render 'page_header', title: '설정 관리', action: nil
+
+.p-4
+  = form_for(Setting.new, url: admin_settings_path) do |f|
+    .form-group
+      %label.control-label 사이트명(site_name)
+      = f.text_field :site_name, value: Setting.site_name, class: "form-control", placeholder: ""
+    .form-group
+      %label.control-label 주소(Host)
+      = f.text_field :host, value: Setting.host, class: "form-control", placeholder: "http://localhost"
+    .form-group.form-checkbox
+      %label
+        = f.check_box :captcha_enable, checked: Setting.captcha_enable?
+        Enable/Disable Captcha
+    .form-group
+      %label.control-label 관리자 이메일(Admin Emails)
+      = f.text_area :admin_emails, value: Setting.admin_emails.join("\n"), class: "form-control"
+    .form-group
+      %label.control-label Notification options
+      = f.text_area :notification_options, value: YAML.dump(Setting.notification_options), class: "form-control", style: "height: 180px;"
+      .form-text
+        Use YAML format to config the SMTP_html
+
+    .form-group
+      = f.submit class: 'btn btn-primary'

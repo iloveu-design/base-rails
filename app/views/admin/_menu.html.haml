@@ -43,3 +43,9 @@
         = link_to '서비스 이용 약관 관리', admin_policies_path(category: 'terms'), class: "nav-link"
       %li.nav-item
         = link_to '개인정보처리방침 관리', admin_policies_path(category: 'privacy'), class: "nav-link"
+
+    %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+      %span 설정 관리
+    %ul.nav.flex-column
+      %li.nav-item
+        = link_to '설정 관리', admin_settings_path, class: "nav-link"
