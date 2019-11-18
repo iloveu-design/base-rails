@@ -11,6 +11,12 @@ rbenv로 ruby 2.6.3을 설치합니다. rbenv가 설치되어 있지 않으면 [
 rbenv install 2.6.3
 ```
 
+설치되지 않을 경우 
+```
+RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)" rbenv install  2.6.3
+```
+
+
 번들러를 설치합니다.
 
 ```
