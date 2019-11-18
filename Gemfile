@@ -41,6 +41,10 @@ gem 'simple_form'
 gem 'summernote-rails'
 gem 'cocoon'
 
+# pdf 
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 # excel
 gem 'axlsx', '2.1.0.pre'
 gem 'axlsx_rails'

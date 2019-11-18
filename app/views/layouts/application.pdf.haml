@@ -1,0 +1,10 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "content-type"}/
+    %meta{content: "width=device-width, initial-scale=1.0, maximum-scale=1.0", name: "viewport"}
+    %meta{"http-equiv" => "X-UA-Compatible", content: "IE=edge"}
+    = wicked_pdf_stylesheet_link_tag    'pdf', media: 'all'
+    = wicked_pdf_javascript_src_tag "application"
+  %body
+    = yield
