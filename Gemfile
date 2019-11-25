@@ -40,8 +40,9 @@ gem 'bootstrap_autocomplete_input'
 gem 'simple_form'
 gem 'summernote-rails'
 gem 'cocoon'
+gem 'browser'
 
-# pdf 
+# pdf
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
