@@ -1,0 +1,18 @@
+<form name="new_paid_guest" class="new_paid_guest" id="new_paid_guest" accept-charset="euc-kr" method="post" onsubmit="document.charset='euc-kr';">
+  <input type="hidden" name="P_OID" value=<%= generate_unique_oid("") %>>
+  <input type="hidden" name="P_MID" value="<%= ENV['INICIS_MID']%>">
+  <input type="hidden" name="P_AMT" value="">
+  <input type="hidden" name="P_UNAME" value="">
+  <input type="hidden" name="P_GOODS" value="">
+  <input type="hidden" name="P_MOBILE" value="">
+  <input type="hidden" name="P_EMAIL" value="">
+
+  <input type="hidden" name="P_HPP_METHOD" value="2">
+
+  <input type="hidden" name="P_NOTI" value="">
+
+  <input type=hidden name="P_NEXT_URL" value="<%= paid_users_payments_url%>">
+  <input type=hidden name="P_RETURN_URL" value="<%= result_payments_url(anni_id: @anniversary.id, helper_id: (@bank_helper.present? ? @bank_helper.id : 'nil') ) %>">
+  <input type=hidden name="P_NOTI_URL" value="<%= rnoti_payments_url %>">
+
+</form>

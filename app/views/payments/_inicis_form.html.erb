@@ -1,0 +1,34 @@
+<form action="/documents/paid_guests" class="new_paid_guest" id="new_paid_guest" method="post">
+  <input type="hidden" name="buyername" value=<%= @paid_user["name"] %>>
+  <input type="hidden" name="buyertel" value=<%= @paid_user["phone"] %>>
+  <input type="hidden" name="buyeremail" value=<%= @paid_user["email"] %>>
+
+  <input type=hidden name=price value=<%= @document_data["fee"]["0"]["amount"] %>>
+  <input type=hidden name=mid value=<%= ENV['INICIS_ID'] %>>
+  <input type=hidden name=goodname value=<%= @document_form.name.gsub(/[^\p{Word}]/, '') %>>
+
+  <input type='hidden' name=currency value="WON">
+  <input type='hidden' name=acceptmethod value="Card:DirectBank:VBank">
+  <input type='hidden' name=gopaymethod value="">
+  <input type='hidden' name=oid value=<%= generate_unique_oid("["+@document_form.name+"]-"+@document.id.to_s) %>>
+
+  <input type='hidden' name=ini_encfield value=>
+  <input type='hidden' name=ini_certid value=>
+
+  <input type='hidden' name=quotainterest value="">
+  <input type='hidden' name=paymethod value="">
+  <input type='hidden' name=cardcode value="">
+  <input type='hidden' name=cardquota value="">
+  <input type='hidden' name=rbankcode value="">
+  <input type='hidden' name=reqsign value="DONE">
+  <input type='hidden' name=encrypted value="">
+  <input type='hidden' name=sessionkey value="">
+  <input type='hidden' name=uid value="">
+  <input type='hidden' name=sid value="">
+  <input type='hidden' name=version value=5000>
+  <input type='hidden' name=clickcontrol value="">
+
+  <input type='hidden' name=document_id value="<%= @document.id %>">
+
+  <!-- <input type='submit'>-->
+</form>

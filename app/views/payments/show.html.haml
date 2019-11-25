@@ -1,0 +1,39 @@
+.page-wrapper
+  .container
+    - if @payment.payment_type == "seedmoney"
+      .content-box
+        .content-box__title 결제완료
+        .content-box__field.content-box__field-margin.text-center
+          %h3
+            %b
+              후원나무 페이지 생성이 완료되었습니다.
+          %h4{:style => 'margin-top: 10px'}
+            나의 후원나무 페이지를 확인 하세요!
+          = link_to image_tag('btn-show-my.png'), @payment.anniversary, class: 'btn-mypage'
+
+          .text-center
+            %a.btn-mainpage{:href => '/'}
+              %h5 &gt; 메인으로 이동하기
+
+        %hr{:style => 'border-color: #808080'}
+        .content-box__field.content-box__field-margin.text-center
+          %h3
+            %b
+              후원나무 성장시키는 방법
+          .content-box__field-img-row
+            = image_tag 'tree-step.png'
+          .content-box__field-img-row.mobile
+            = image_tag 'tree-step-mobile.png'
+          / %p
+          /   * 나만의 페이지를 지인들에게 공유하시고 후원나무를 함께 키워보세요.
+          /   %br
+          /   * 지인들의 댓글과 공유 만으로도 더 큰 나눔을 할 수 있습니다.
+    - elsif @payment.payment_type == "temporary"
+      .content-box
+        .content-box__title 일시후원이 완료되었습니다.
+        .content-box__field
+          = link_to '후원나무 페이지 가기', @payment.anniversary
+
+
+
+

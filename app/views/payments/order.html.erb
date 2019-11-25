@@ -1,0 +1,195 @@
+<div class="contents" style="background: whitesmoke">
+  <div class="container attestation bg">
+    <div id="join_wrapper" style="margin:40px auto;">
+      <h2>결제하기</h2>
+
+      <hr>
+      <div id="join_left" class="join_left">
+          <table id="user_form_table" class="tbody">
+            <tr>
+              <th>결제금액</th>
+              <td>
+                <%= text_field :pay, :amount, :value => "3000", :placeholder => "예) 250000 ", :class => "text" %>
+              </td>
+            </tr>
+
+            <tr>
+              <th></th>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( <span id="pay_amount_kr"></span> 원 )</td>
+            </tr>
+
+            <tr>
+              <th></th>
+              <td></td>
+            </tr>
+
+            <tr>
+              <th>이름</th>
+              <td>
+                <%= text_field :pay, :name, :value => "test", :placeholder => "예) 홍길동 ", :class => "text" %>
+              </td>
+            </tr>
+
+            <tr>
+              <th></th>
+              <td></td>
+            </tr>
+
+            <tr>
+              <th>전화번호</th>
+              <td>
+                <%= text_field :pay, :tel, :value => "010-123-1234", :placeholder => "예) 010-1234-5678 ", :class => "text" %>
+              </td>
+            </tr>
+            <tr>
+              <th></th>
+              <td></td>
+            </tr>
+            <tr>
+              <th>서비스명</th>
+              <td>
+                <%= text_field :pay, :service, :value => "test", :placeholder => "예) 지급명령신청 ", :class => "text" %>
+              </td>
+            </tr>
+            <tr>
+              <th></th>
+              <td></td>
+            </tr>
+            <tr>
+              <th>이메일</th>
+              <td>
+                <%= text_field :pay, :email, :value => "test@test.com", :placeholder => "예) hello@example.com", :class => "text" %> <%= image_tag "check.png", :class => "check", :id => 'email_check', :style => "display:none;" %>
+              </td>
+            </tr>
+            <tr>
+              <th></th>
+              <td>
+                <div id="email_error" style="color:red;font-size:10pt;display:none;" class="join-error">
+                  이메일 형식이 올바르지 않습니다.
+                  (예 : example@example.com)
+                </div>
+                <div id="email_correct" style="color:green;font-size:10pt;display:none;float:right;"class="join-error">
+                  사용가능한 이메일 입니다.
+                </div>
+              </td>
+            </tr>
+
+            <% if browser.mobile? %>
+              <tr>
+                <th>결제방법</th>
+                <td>
+                  <%= radio_button_tag :pay_method, "CARD" %> 신용카드
+                  <%= radio_button_tag :pay_method, "BANK" %> 계좌이체
+                  <%= radio_button_tag :pay_method, "VBANK" %> 가상계좌
+                </td>
+              </tr>
+            <% end %>
+
+          </table>
+
+
+          <div id="join_btn_box">
+            <a class="regi_button" href="#">결제하기</a>
+          </div>
+
+          <div id="join_right">
+            <a class="regi_button go_home" href="/">홈으로</a>
+          </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<%= render (browser.mobile? && "inicis_form_user_mobile" || "inicis_form_user") %>
+<%= render "inicis_javascript" %>
+
+<script type="text/javascript">
+  $(function(){
+
+    $('#join_btn_box .regi_button').click(function(e){
+      if(!chk_value("#pay_amount")) return false;
+      if(!chk_value("#pay_name")) return false;
+      if(!chk_value("#pay_tel")) return false;
+      if(!chk_value("#pay_service")) return false;
+      if(!chk_value("#pay_email")) return false;
+
+<% if browser.mobile? %>
+      var wallet = window.open("", "BTPG_WALLET");
+
+      $('input[name="P_UNAME"]').val( $("#pay_name").val() );
+      $('input[name="P_MOBILE"]').val( $("#pay_tel").val() );
+      $('input[name="P_EMAIL"]').val( $("#pay_email").val() );
+      $('input[name="P_AMT"]').val( $("#pay_amount").val() );
+      $('input[name="P_GOODS"]').val( $("#pay_service").val() );
+
+      switch( $('input[name="pay_method"]:checked').val() ) {
+        case "CARD" : // 신용카드
+          tURL = "https://mobile.inicis.com/smart/wcard/";
+          break;
+        case "VBANK" : // 가상계좌
+          tURL = "https://mobile.inicis.com/smart/vbank/";
+          break;
+        case "BANK" : // 계좌이체
+          tURL = "https://mobile.inicis.com/smart/bank/";
+          break;
+      }
+
+      mForm = $('.new_paid_guest')[0];
+      mForm.target = "BTPG_WALLET";
+      mForm.action = tURL;
+      mForm.submit();
+<% else %>
+      $('input[name="buyername"]').val( $("#pay_name").val() );
+      $('input[name="buyertel"]').val( $("#pay_tel").val() );
+      $('input[name="buyeremail"]').val( $("#pay_email").val() );
+      $('input[name="price"]').val( $("#pay_amount").val() );
+      $('input[name="goodname"]').val( $("#pay_service").val() );
+
+      inicisPayment($('.new_paid_guest')[0]);
+      // for inicis flash module
+      e.preventDefault();
+<% end %>
+
+    });
+
+    $("#pay_amount").keyup(function() {
+      $("#pay_amount_kr").html( number_to_hangul2($("#pay_amount").val()) );
+    });
+
+    $('#btn-back').click(function() {
+      location.href = "/";
+    });
+  });
+
+  //숫자를 만 단위 한글로 예) 12300 -> 1만 2300
+  function number_to_hangul2(string)
+  {
+    var result = "";
+    var number = parseInt(string);
+    var hj = new Array("","만","억","조","경","해","시","양","구","간","정","재","극");
+    var i=0;
+
+    while (number > 0){
+      var rest = String(number % 10000);
+      number = parseInt(number / 10000);
+      if (rest > 0)
+        result = rest + hj[i] + " " + result;
+      i++;
+    }
+
+    return $.trim(result);
+  }
+
+  function chk_value(objname) {
+    if( !$(objname).val() ) {
+      alert("값을 입력하셔야 합니다.");
+      $(objname).focus();
+
+      return false;
+    } else {
+      return true;
+    }
+  }
+</script>

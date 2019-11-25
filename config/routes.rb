@@ -11,6 +11,14 @@ Rails.application.routes.draw do
   end
   resources :subscriptions
 
+  resources :payments do
+    collection do
+      post 'paid_users', to: 'payments#post_paid_users'
+      post "rnoti", :to => "payments#rnoti"
+      get 'result', :to => "payments#result"
+    end
+  end
+
   get 'pages/terms'
   get 'pages/privacy'
 
@@ -37,6 +45,10 @@ Rails.application.routes.draw do
     resources :boards
     resources :board_posts do
       resources :comments, module: :board_posts
+    end
+
+    resources :payments do
+      get 'edit_cancel_status'
     end
 
     resources :op_items

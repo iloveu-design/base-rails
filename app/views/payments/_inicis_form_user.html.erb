@@ -1,0 +1,41 @@
+<form action="/payments" class="new_paid_guest" id="new_paid_guest" method="post">
+  <input type="hidden" name="buyername" value="">
+  <input type="hidden" name="buyertel" value="">
+  <input type="hidden" name="buyeremail" value="">
+
+  <input type=hidden name=price value="">
+  <input type=hidden name=mid value="<%= ENV['INICIS_ID']%>">
+  <input type=hidden name=goodname value="">
+
+  <input type='hidden' name=currency value="WON">
+  <input type='hidden' name=acceptmethod value="Card:DirectBank:HPP(2)">
+  <input type='hidden' name=gopaymethod value="Card:DirectBank:HPP">
+  <input type='hidden' name=oid value=<%= generate_unique_oid("") %>>
+
+  <input type='hidden' name=ini_encfield value=>
+  <input type='hidden' name=ini_certid value=>
+
+  <input type='hidden' name=quotainterest value="">
+  <input type='hidden' name=paymethod value="">
+  <input type='hidden' name=cardcode value="">
+  <input type='hidden' name=cardquota value="">
+  <input type='hidden' name=rbankcode value="">
+  <input type='hidden' name=reqsign value="DONE">
+  <input type='hidden' name=encrypted value="">
+  <input type='hidden' name=sessionkey value="">
+  <input type='hidden' name=uid value="">
+  <input type='hidden' name=sid value="">
+  <input type='hidden' name=version value=5000>
+  <input type='hidden' name=clickcontrol value="">
+
+  <input type='hidden' name=payment_type value="<%= params[:payment_type] %>">
+  <input type='hidden' name=anniversary_id value="<%= params[:anniversary_id] %>">
+  <input type='hidden' name=bill_name value="">
+  <input type='hidden' name=bill_address value="">
+  <input type='hidden' name=bill_phone value="">
+  <input type='hidden' name=ssn value="">
+
+  <input type="hidden" name=nickname>
+
+  <!-- <input type='submit'>-->
+</form>

@@ -1,0 +1,33 @@
+<script src="https://plugin.inicis.com/pay61_secunissl_cross.js" type="text/javascript"></script>
+<script type="text/javascript">
+  StartSmartUpdate();
+
+  function inicisPayment(form) {
+    // MakePayMessage()를 호출함으로써 플러그인이 화면에 나타나며, Hidden Field
+    // 에 값들이 채워지게 됩니다. 일반적인 경우, 플러그인은 결제처리를 직접하는 것이
+    // 아니라, 중요한 정보를 암호화 하여 Hidden Field의 값들을 채우고 종료하며,
+    // 다음 페이지인 INIsecureresult.php로 데이터가 포스트 되어 결제 처리됨을 유의하시기 바랍니다.
+
+    if ((navigator.userAgent.indexOf("MSIE") >= 0 ||
+          navigator.appName == 'Microsoft Internet Explorer') &&
+          (document.INIpay == null || document.INIpay.object == null)) {  // 플러그인 설치유무 체크
+      alert("\n이니페이 플러그인 128이 설치되지 않았습니다. \n\n안전한 결제를 위하여 이니페이 플러그인 128의 설치가 필요합니다. \n\n다시 설치하시려면 Ctrl + F5키를 누르시거나 메뉴의 [보기/새로고침]을 선택하여 주십시오.");
+      return false;
+    } else {
+      /******
+       * 플러그인이 참조하는 각종 결제옵션을 이곳에서 수행할 수 있습니다.
+       * (자바스크립트를 이용한 동적 옵션처리)
+       */
+      if (MakePayMessage(form)) {
+        form.submit();
+        return true;
+      } else {
+        if (IsPluginModule()) {  //plugin타입 체크
+          alert("결제를 취소하셨습니다.");
+        }
+        return false;
+      }
+    }
+  }
+
+</script>

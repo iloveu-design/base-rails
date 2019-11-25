@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_25_022657) do
+ActiveRecord::Schema.define(version: 2019_11_25_065139) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -113,6 +113,25 @@ ActiveRecord::Schema.define(version: 2019_11_25_022657) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "payments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "price"
+    t.string "payment_type"
+    t.string "tid"
+    t.string "result_code"
+    t.string "nickname"
+    t.integer "product_id"
+    t.string "bill_name"
+    t.string "bill_phone"
+    t.string "bill_address"
+    t.string "encrypted_ssn"
+    t.string "encrypted_ssn_salt"
+    t.string "encrypted_ssn_iv"
+    t.boolean "is_cancel", default: false
+    t.string "buyeremail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "policies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "category"
     t.text "body"
@@ -186,6 +205,53 @@ ActiveRecord::Schema.define(version: 2019_11_25_022657) do
     t.datetime "updated_at"
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_tags_on_name", unique: true
+  end
+
+  create_table "transactions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "tid"
+    t.string "result_code"
+    t.string "result_msg"
+    t.string "pay_method"
+    t.string "moid"
+    t.string "price"
+    t.string "pay_at"
+    t.string "card_approve_num"
+    t.string "card_quota"
+    t.string "card_interest"
+    t.string "card_code"
+    t.string "card_bank_code"
+    t.string "card_auth_type"
+    t.string "card_event_code"
+    t.string "acct_bank_code"
+    t.string "cshr_result_code"
+    t.string "cshr_type"
+    t.string "vact_reg_num"
+    t.string "vact_num"
+    t.string "vact_bank_code"
+    t.string "vact_date"
+    t.string "vact_input_name"
+    t.string "vact_name"
+    t.string "payment_id"
+    t.string "anniversary_id"
+    t.string "nickname"
+    t.string "payment_type"
+    t.string "p_card_issuer_code"
+    t.string "p_card_num"
+    t.string "p_card_member_num"
+    t.string "p_card_purchase_code"
+    t.string "p_card_prtc_code"
+    t.string "p_vact_time"
+    t.string "p_auth_no"
+    t.string "p_rmesg2"
+    t.string "p_noti"
+    t.string "bill_name"
+    t.string "bill_phone"
+    t.string "bill_address"
+    t.string "ssn"
+    t.integer "helper_id"
+    t.string "buyeremail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|

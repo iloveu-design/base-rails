@@ -1,0 +1,14 @@
+.page-wrapper
+  .container
+    .content-box
+      .content-box__title
+        - if @transaction.present?
+          계좌이체가 #{@transaction.result_msg}
+        - else
+          계좌이체가 정상적으로 진행되지 않았습니다.
+      .content-box__field
+        = link_to '후원나무 페이지 가기', anniversary_path(id: params[:anni_id])
+
+
+
+

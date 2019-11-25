@@ -1,0 +1,63 @@
+%section
+  .page-header
+    %h3 후원 관리
+
+  .clearfix{style: 'margin-bottom: 30px;'}
+    .pull-left
+      = link_to '나무후원', admin_payments_path(filter: 'seedmoney'), class: params[:filter] == 'seedmoney' ? 'btn btn-default disabled' : 'btn btn-default'
+      = link_to '열매후원', admin_payments_path(filter: 'temporary'), class: params[:filter] == 'temporary' ? 'btn btn-default disabled' : 'btn btn-default'
+
+    - if params[:filter] == 'temporary'
+      .pull-right
+        = link_to temp_donation_admin_users_path(format: 'xlsx'), class: 'btn btn-primary' do
+          열매후원자 엑셀 다운받기
+
+  .panel.panel-default.admin-users
+    %ul.list-group
+      - if params[:filter] == 'seedmoney'
+        %li.list-group-item.disabled
+          .row.text-center
+            .col-sm-1 후원일
+            .col-sm-2 이메일
+            .col-sm-2 닉네임
+            .col-sm-1 금액
+            .col-sm-1 나무
+            .col-sm-4 나무명
+            .col-sm-1 가입일
+        - @payments.each do |p|
+          %li.list-group-item
+            .row.text-center
+              .col-sm-1= p.created_at.strftime("%Y.%m.%d")
+              .col-sm-2= p.anniversary.user.email
+              .col-sm-2= p.anniversary.user.nickname
+              .col-sm-1= p.price
+              .col-sm-1= p.anniversary.en_tree_type
+              .col-sm-4= p.anniversary.title
+              .col-sm-1= p.anniversary.user.created_at.strftime("%Y.%m.%d")
+
+      - elsif params[:filter] == 'temporary'
+        %li.list-group-item.disabled
+          .row.text-center
+            .col-sm-1 후원일
+            .col-sm-2 이메일
+            .col-sm-2 닉네임
+            .col-sm-1 금액
+            .col-sm-4 나무명
+            .col-sm-2 나무주인 이메일
+        - @payments.each do |p|
+          %li.list-group-item
+            .row.text-center
+              .col-sm-1= p.created_at.strftime("%Y.%m.%d")
+              .col-sm-2= p.buyeremail
+              .col-sm-2= p.nickname
+              .col-sm-1= p.price
+              .col-sm-4= p.anniversary.title
+              .col-sm-2= p.anniversary.user.email
+
+  .text-center
+    = paginate @payments
+
+:css
+  .btn.disabled{
+    background-color: #C3C3C3;
+  }
