@@ -1,15 +1,19 @@
-.p-4.border-bottom[op_item]
-  = simple_form_for [:admin, op_item] do |f|
-    = f.hidden_field :category
-    = f.input :seq
-    - @op_item_setting.each do |k, v|
-      - if k != 'name'
-        .form-group
-          %label= I18n.t(k, scope: 'activerecord.attributes.op_item')
-          - if v == 'string'
-            = text_field_tag "op_item[content][#{k}]", op_item.get_content(k), class: 'form-control'
-          - if v == 'text'
-            = text_area_tag "op_item[content][#{k}]", op_item.get_content(k), class: 'form-control'
-    = f.submit class: 'btn btn-primary'
+.p-4.border-bottom{ id: op_item.sortable_id }
+  .d-flex.justify-content-start
     - unless op_item.new_record?
-      = link_to '삭제', [:admin, op_item], method: :delete, remote: true, class: 'btn btn-outline-secondary'
+      .pr-4
+        %i.fas.fa-arrows-alt{ style: 'cursor: pointer' }
+    .flex-fill
+      = simple_form_for [:admin, op_item] do |f|
+        = f.hidden_field :category
+        - @op_item_setting.each do |k, v|
+          - if k != 'name'
+            .form-group
+              %label= I18n.t(k, scope: 'activerecord.attributes.op_item')
+              - if v == 'string'
+                = text_field_tag "op_item[content][#{k}]", op_item.get_content(k), class: 'form-control'
+              - if v == 'text'
+                = text_area_tag "op_item[content][#{k}]", op_item.get_content(k), class: 'form-control'
+        = f.submit class: 'btn btn-primary'
+        - unless op_item.new_record?
+          = link_to '삭제', [:admin, op_item], method: :delete, remote: true, class: 'btn btn-outline-secondary'

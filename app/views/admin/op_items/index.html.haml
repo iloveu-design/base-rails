@@ -1,5 +1,6 @@
 = render 'page_header', title: "메인 페이지 관리 > #{@op_item_setting["name"]}", action: nil
 
 = render 'form', op_item: OpItem.new(category: @category)
-- @op_items.each do |op_item|
-  = render 'form', op_item: op_item
+.sortable
+  - @op_items.each_with_sortable_id do |op_item, sortable_id|
+    = render 'form', op_item: op_item
