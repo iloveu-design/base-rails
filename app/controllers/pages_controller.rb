@@ -2,6 +2,12 @@ class PagesController < ApplicationController
   def home
   end
 
+  def dev_login
+    raise "what the!" unless Rails.env.development? || Rails.env.staging?
+    sign_in(:user, User.find(params[:id]))
+    redirect_to :root
+  end
+
   def pdf
     respond_to do |format|
       format.html
