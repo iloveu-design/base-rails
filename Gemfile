@@ -44,6 +44,9 @@ gem 'cocoon'
 gem 'browser'
 gem 'rails_sortable'
 
+# payment 
+gem "attr_encrypted"
+
 # pdf
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
