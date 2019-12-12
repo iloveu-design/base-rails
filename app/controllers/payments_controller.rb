@@ -1,7 +1,7 @@
 require 'csv'
 
 class PaymentsController < ApplicationController
-  skip_before_filter :verify_authenticity_token
+  # skip_before_filter :verify_authenticity_token
 
   def new
     @anniversary = Anniversary.unscoped.find params[:anniversary_id]
