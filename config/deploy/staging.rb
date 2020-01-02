@@ -5,7 +5,7 @@ set :nginx_server_name, 'base-rails.slowalk.dev'
 set :deploy_user, 'ufofactory'
 set :deploy_to, '/home/ufofactory/apps/base-rails'
 
-set :rbenv_ruby, '2.5.1'
+set :rbenv_ruby, '2.6.3'
 
 role :app, %w{ufofactory@slowalk.dev}
 role :web, %w{ufofactory@slowalk.dev}
