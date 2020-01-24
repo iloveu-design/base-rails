@@ -1,0 +1,4 @@
+%meta{:content => (content_for?(:og_url) ? yield(:og_url) : root_url), :property => "og:url"}
+%meta{:content => (content_for?(:og_title) ? yield(:og_title) : "슬로워크 레일즈 베이스"), :property => "og:title"}
+%meta{:content => (content_for?(:og_description) ? yield(:og_description) : "레일즈 베이스입니다"), :property => "og:description"}
+%meta{:content => (content_for?(:og_image) ? yield(:og_image) : asset_url('og.png') ), :property => "og:image"}
