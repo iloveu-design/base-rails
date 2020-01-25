@@ -1,2 +1,15 @@
-= render 'page_header', title: '기본 정보 관리', action: nil
-= render 'form'
+= render 'page_header', title: '기본 정보 관리', action: link_to("공간추가하기", new_admin_space_path, class: "btn btn-primary")
+
+%section.p-4
+  %table.table.table-bordered
+    %thead
+      %tr
+        %th 공간명
+        %th 예약
+    %tbody
+      - @spaces.each do |space|
+        %tr
+          %td= link_to space.name, admin_space_path(space)
+          %td
+            = link_to admin_reservations_path(space_id: space) do
+              #{space.reservations.count} 건

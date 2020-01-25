@@ -1,5 +1,6 @@
-%section.p-4
+%section.p-4.border-bottom
   = simple_form_for [:admin, @reservation], wrapper: :horizontal_form, wrapper_mappings: { datetime: :horizontal_multi_select } do |f|
+    = f.input :space_id, collection: Space.all, include_blank: false
     = f.input :name, placeholder: '이름 또는 기업명을 입력해주세요.'
     = f.input :body, as: :text, placeholder: '신청 내용을 간략히 입력해주세요.'
     = f.input :start_on
@@ -8,3 +9,9 @@
       .col-sm-9.offset-sm-3
         = link_to "취소", admin_reservations_path, class: "btn btn-outline-secondary"
         = f.button :submit, class: "btn btn-primary"
+
+- unless @reservation.new_record?
+  %section.px-4.py-2
+    .py-2
+      .text-right
+        = link_to '삭제', [:admin, @reservation], method: :delete, class: 'btn btn-outline-danger', data: { confirm: I18n.t('msgs.confirm_destroy') }

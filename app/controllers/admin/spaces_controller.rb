@@ -1,7 +1,28 @@
 class Admin::SpacesController < AdminController
-  before_action :set_space
+  before_action :set_space, only: [:show, :edit, :update, :delete_file]
 
   def index
+    @spaces = Space.all
+  end
+
+  def new
+    @space = Space.new
+  end
+
+  def create
+    @space = Space.new(space_params)
+    if @space.save
+      redirect_to admin_space_path(@space), notice: I18n.t("msgs.saved")
+    else
+      render :new
+    end
+  end
+
+  def show
+    redirect_to edit_admin_space_path(@space)
+  end
+
+  def edit
   end
 
   def update
@@ -28,7 +49,7 @@ class Admin::SpacesController < AdminController
 
     def space_params
       params.require(:space).permit(
-        :image, :phone, :email, :time, :seats, :price, :min_time, :advantages, :manager, :precautions, events: [], cafes: [], usages: []
+        :name, :image, :phone, :email, :time, :seats, :price, :min_time, :advantages, :manager, :precautions, events: [], cafes: [], usages: []
       )
     end
 end

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   if Rails.env.development? || Rails.env.staging?
     get "dev_login/:id", controller: 'pages', action: 'dev_login'
   end
-  
+
   resources :users do
     resources :notifications, shallow: true
     member do
@@ -14,7 +14,6 @@ Rails.application.routes.draw do
       post :unfollow
     end
   end
-
 
   resources :subscriptions
 

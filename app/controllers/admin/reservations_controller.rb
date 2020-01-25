@@ -1,7 +1,9 @@
 class Admin::ReservationsController < AdminController
-  before_action :set_reservation, only: [:edit, :update, :destroy]
+  before_action :set_reservation, only: [:show, :edit, :update, :destroy]
   def index
-    @reservations = Reservation.order("id desc")
+    @reservations = Reservation.all
+
+    @reservations = @reservations.where(space: params[:space_id]) if params[:space_id].present?
   end
 
   def new
@@ -18,6 +20,10 @@ class Admin::ReservationsController < AdminController
     end
   end
 
+  def show
+    redirect_to edit_admin_reservation_path(@reservation)
+  end
+
   def edit
   end
 
@@ -30,6 +36,8 @@ class Admin::ReservationsController < AdminController
   end
 
   def destroy
+    @reservation.destroy
+    redirect_to admin_reservations_path, notice: I18n.t('msgs.destroyed')
   end
 
   private
@@ -39,6 +47,6 @@ class Admin::ReservationsController < AdminController
     end
 
     def reservation_params
-      params.require(:reservation).permit(:name, :body, :start_on, :end_on)
+      params.require(:reservation).permit(:space_id, :name, :body, :start_on, :end_on)
     end
 end
