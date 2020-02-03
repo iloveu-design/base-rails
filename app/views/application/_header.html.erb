@@ -9,12 +9,22 @@
       <li class="nav-item">
         <%= link_to "Users", users_path, class: "nav-link"%>
       </li>
+      <li class="nav-item">
+        <%= link_to "공간 목록", spaces_path, class: "nav-link"%>
+      </li>
+      <li class="nav-item">
+        <%= link_to "대관 일정", reservations_path, class: "nav-link"%>
+      </li>
       <% Board.all.each do |board| %>
         <li class="nav-item">
           <%= link_to board.name, users_path, class: "nav-link"%>
         </li>
       <% end %>
     </ul>
+
+    <form class="form-inline my-2 my-md-0 mr-4">
+      <input class="form-control" type="text" placeholder="Search">
+    </form>
 
     <ul class="navbar-nav">
       <% if user_signed_in? %>
@@ -28,10 +38,5 @@
       <% end %>
     </ul>
 
-    <!--
-    <form class="form-inline my-2 my-md-0">
-      <input class="form-control" type="text" placeholder="Search">
-    </form>
-    -->
   </div>
 </nav>

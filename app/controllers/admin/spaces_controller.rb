@@ -44,7 +44,7 @@ class Admin::SpacesController < AdminController
   private
 
     def set_space
-      @space = Space.first || Space.create(name: '슬로워크홀')
+      @space = Space.find(params[:id])
     end
 
     def space_params

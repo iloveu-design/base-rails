@@ -1,0 +1,13 @@
+= render 'calendar'
+
+:javascript
+  $(document).on("click", "[data-js-fetch-calendar]", function() {
+    var start_on = $(this).data("js-fetch-calendar");
+    Rails.ajax({
+      url: "/reservations.js?start_on="+start_on,
+      type: "get",
+      data: "",
+      success: function(data) {},
+      error: function(data) {}
+    });
+  })

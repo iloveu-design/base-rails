@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :spaces
+  resources :reservations
+
   resources :subscriptions
 
   resources :payments do

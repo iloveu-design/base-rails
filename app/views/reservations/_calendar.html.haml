@@ -1,0 +1,33 @@
+.calen-week
+  .contents-wrap
+    %h2.calen-week__tit
+      %button.prev{"data-js-fetch-calendar" => @weekdays.first.last_week} 이전 주
+      %span= l(@weekdays.first, format: "%Y년 %m월 %d일")
+      \~
+      \#{l(@weekdays.last, format: "%Y년 ") if @weekdays.first.year != @weekdays.last.year}#{l(@weekdays.last, format: "%m월 %d일")}
+      대관 현황
+      %button.next{"data-js-fetch-calendar" => @weekdays.first.next_week} 다음 주
+    .calen-week__wrap
+      %table
+        %thead
+          %tr
+            %th 시간
+            - @weekdays.each do |day|
+              %th= l(day, format: "%m월 %d일(%a)")
+        %tbody
+          - (7..23).each do |hour|
+            %tr
+              %th
+                = hour
+                \:00
+              - @weekdays.each do |day|
+                %td{ class: (day.today? ? "today" : "") }
+                  - start_time = Time.zone.parse(day.to_s).change(hour: hour)
+                  - @reservations.between_times(start_time, 1.minute.ago(start_time.change(hour: hour+1)), field: :start_on).each do |reservation|
+                    .reser-1{:style => "top: #{reservation.start_on.min * 0.5}px; height: #{reservation.duration * 33 - 1}px;"}
+                      %span.time
+                        = l(reservation.start_on, format: "%H:%M")
+                        \~ #{l(reservation.end_on, format: "%H:%M")}
+                      %span
+                        [#{reservation.name}]
+                      = reservation.body

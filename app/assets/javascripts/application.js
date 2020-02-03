@@ -1,12 +1,13 @@
 //= require rails-ujs
 //= require activestorage
-//= require jquery3
+//= require jquery
 //= require popper
 //= require bootstrap
 //= require bootstrap3-typeahead.min
 //= require bootstrap-autocomplete-input
 //= require bootstrap-autocomplete-input-init
 //= require cocoon
+//= require jquery-ui
 //= require summernote/summernote-bs4.min
 //= require summernote-slowalk
 

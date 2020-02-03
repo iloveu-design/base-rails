@@ -21,6 +21,7 @@ gem "omniauth-kakao", :path => "vendor/gems/omniauth-kakao"
 gem "rails-settings-cached", "~> 2.0"
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'ancestry'
+gem 'by_star', git: "https://github.com/radar/by_star"
 
 # activestorage
 gem 'mini_magick', '~> 4.8'
@@ -44,7 +45,7 @@ gem 'cocoon'
 gem 'browser'
 gem 'rails_sortable'
 
-# payment 
+# payment
 gem "attr_encrypted"
 
 # pdf

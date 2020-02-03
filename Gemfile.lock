@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/radar/by_star
+  revision: 3b538097ee90b01a5ffa13a158ebb615f7b65ee5
+  specs:
+    by_star (4.0.0)
+      activesupport (>= 3.2.0)
+
 PATH
   remote: vendor/gems/omniauth-kakao
   specs:
@@ -395,6 +402,7 @@ DEPENDENCIES
   bootstrap (~> 4.3.1)
   bootstrap_autocomplete_input
   browser
+  by_star!
   byebug
   cancancan
   capistrano (~> 3.6)
@@ -451,4 +459,4 @@ RUBY VERSION
    ruby 2.6.3p62
 
 BUNDLED WITH
-   2.0.2
+   2.1.3
