@@ -23,11 +23,14 @@ RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)" rbenv install 
 gem install bundler
 ````
 mysql2가 설치되지 않을 경우 
-
+* try 1
 ```
 gem install mysql2 -- --with-opt-dir="$(brew --prefix openssl)"
-````
-
+```
+* try 2
+```
+bundle config --local build.mysql2 "--with-ldflags=-L/usr/local/opt/openssl/lib --with-cppflags=-I/usr/local/opt/openssl/include"
+```
 프로젝트를 복사하고 해당 디렉토리로 들어가서 데이터베이스를 생성합니다.
 
 ```
