@@ -62,6 +62,7 @@ Rails.application.routes.draw do
 
     resources :op_items
     resources :policies
+    resources :roles
     resources :settings
     resources :assets, only: [:create, :destroy]
 

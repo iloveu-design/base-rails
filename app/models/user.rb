@@ -20,15 +20,12 @@ class User < ApplicationRecord
 
   after_create do |obj|
     if obj.role.nil?
-      obj.role = 'general'
+      obj.role = :general
       obj.save
     end
   end
 
-  ROLE = {
-    'admin' => '관리자',
-    'general' => '일반회원'
-  }
+  enum role: { admin: "admin", general: "general" }
 
   def admin?
     role == 'admin'
@@ -41,7 +38,7 @@ class User < ApplicationRecord
       user.email =  auth['email']
       user.password = Devise.friendly_token[0,20]
       user.name = auth["name"]
-      user.role = 'general'
+      user.role = :general
     end
     user.save
     user
