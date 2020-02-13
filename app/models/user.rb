@@ -6,17 +6,19 @@ class User < ApplicationRecord
          :omniauthable, :omniauth_providers => [:facebook, :naver, :kakao]
 
   has_many :notifications
-
   has_many :follows
   has_many :active_relationships, foreign_key: 'follower_id', class_name: 'Follow', dependent: :destroy
   has_many :passive_relationships, foreign_key: 'followed_id', class_name: 'Follow', dependent: :destroy
   has_many :followings, through: :active_relationships, source: :followed_user
   has_many :followers, through: :passive_relationships, source: :follower_user
 
-  #validates :name, presence: :true
+  enum role: { admin: "admin", general: "general" }
 
+  scoped_search on: [:name, :uid, :email]
   scope :recent, -> { order("created_at DESC") }
   scope :hibernated, -> { where(hibernated: true) }
+
+  #validates :name, presence: :true
 
   after_create do |obj|
     if obj.role.nil?
@@ -24,8 +26,6 @@ class User < ApplicationRecord
       obj.save
     end
   end
-
-  enum role: { admin: "admin", general: "general" }
 
   def admin?
     role == 'admin'

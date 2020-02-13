@@ -1,0 +1,23 @@
+= render 'page_header', title: '전체 회원 > 회원 상세', action: link_to("목록으로", admin_users_path, class: 'btn btn-primary')
+
+%section.p-4
+  .mb-4
+    %h5 회원 정보
+
+  %table.table.table-bordered.table-striped
+    %thead
+      %tr
+        %th ID
+        %th 아이디
+        %th 이메일
+        %th 이름
+        %th 가입경로
+        %th 로그인횟수
+    %tbody
+      %tr[@user]
+        %td= @user.id
+        %td= @user.uid
+        %td= @user.email
+        %td= @user.name
+        %td= @user.provider
+        %td= @user.sign_in_count
