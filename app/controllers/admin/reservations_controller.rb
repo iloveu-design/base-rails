@@ -14,7 +14,7 @@ class Admin::ReservationsController < AdminController
     @reservation = Reservation.new(reservation_params)
 
     if @reservation.save
-      redirect_to [:edit, :admin, @reservation], notice: I18n.t('msgs.saved')
+      redirect_to [:edit, :admin, @reservation], notice: I18n.t('msgs.success.saved')
     else
       render :new
     end
@@ -29,7 +29,7 @@ class Admin::ReservationsController < AdminController
 
   def update
     if @reservation.update(reservation_params)
-      redirect_to [:edit, :admin, @reservation], notice: I18n.t('msgs.saved')
+      redirect_to [:edit, :admin, @reservation], notice: I18n.t('msgs.success.saved')
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class Admin::ReservationsController < AdminController
 
   def destroy
     @reservation.destroy
-    redirect_to admin_reservations_path, notice: I18n.t('msgs.destroyed')
+    redirect_to admin_reservations_path, notice: I18n.t('msgs.success.destroyed')
   end
 
   private

@@ -12,7 +12,7 @@ class Admin::SpacesController < AdminController
   def create
     @space = Space.new(space_params)
     if @space.save
-      redirect_to admin_space_path(@space), notice: I18n.t("msgs.saved")
+      redirect_to admin_space_path(@space), notice: I18n.t("msgs.success.saved")
     else
       render :new
     end

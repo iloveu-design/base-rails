@@ -17,7 +17,7 @@ class Admin::PoliciesController < AdminController
     @policy = Policy.new(policy_params)
 
     if @policy.save
-      redirect_to [:edit, :admin, @policy], notice: I18n.t('msgs.saved')
+      redirect_to [:edit, :admin, @policy], notice: I18n.t('msgs.success.saved')
     else
       render :new
     end
@@ -25,7 +25,7 @@ class Admin::PoliciesController < AdminController
 
   def update
     if @policy.update(policy_params)
-      redirect_to [:edit, :admin, @policy], notice: I18n.t('msgs.saved')
+      redirect_to [:edit, :admin, @policy], notice: I18n.t('msgs.success.saved')
     else
       render :edit
     end
