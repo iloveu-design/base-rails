@@ -7,4 +7,6 @@ class Space < ApplicationRecord
   has_many_attached :usage_photos
 
   scoped_search on: [:name]
+
+  validates :name, presence: true
 end
