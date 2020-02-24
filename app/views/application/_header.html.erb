@@ -22,9 +22,9 @@
       <% end %>
     </ul>
 
-    <form class="form-inline my-2 my-md-0 mr-4">
-      <input class="form-control" type="text" placeholder="Search">
-    </form>
+    <%= simple_form_for(:q, method: :get, url: spaces_path, html: { class: 'form-inline my-2 my-md-0 mr-4' }) do |f| %>
+      <%= f.input :all, placeholder: 'Search', input_html: { class: 'form-control', name: 'q' }, label: false %>
+    <% end %>
 
     <ul class="navbar-nav">
       <% if user_signed_in? %>

@@ -5,4 +5,6 @@ class Space < ApplicationRecord
   has_many_attached :event_photos
   has_many_attached :cafe_photos
   has_many_attached :usage_photos
+
+  scoped_search on: [:name]
 end
