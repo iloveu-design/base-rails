@@ -25,9 +25,16 @@ class User::RegistrationsController < Devise::RegistrationsController
   # end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    if current_user.valid_password?(params[:user][:password])
+      UserDeletion.new(reason: params[:reason]).save if params[:reason].present?
+      user = current_user
+      sign_out current_user
+      super
+    else
+      redirect_to "/users/edit", notice: "비밀번호가 일치하지 않습니다"
+    end
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
