@@ -44,6 +44,7 @@ Rails.application.routes.draw do
     end
     resources :notifications
     resources :subscriptions
+    resources :user_deletions
 
     resources :spaces do
       member do

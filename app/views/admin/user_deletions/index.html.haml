@@ -1,0 +1,19 @@
+= render 'page_header', title: '탈퇴 기록', action: nil
+
+%section.p-4
+
+  %table.table.table-bordered.table-striped
+    %thead
+      %tr
+        %th ID
+        %th 탈퇴일자
+        %th 탈퇴사유
+    %tbody
+      - @user_deletions.each do |deletion|
+        %tr[deletion]
+          %td= deletion.id
+          %td= l deletion.created_at
+          %td= deletion.reason
+
+  .d-flex.justify-content-center
+    = paginate @user_deletions
