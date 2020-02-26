@@ -1,0 +1,2 @@
+class UserDeletion < ApplicationRecord
+end
