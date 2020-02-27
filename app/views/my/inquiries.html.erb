@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col">
+    <%= link_to "정보 수정", edit_user_registration_path, class: 'btn btn-primary' %>
+    <%= link_to "1:1 문의", new_inquiry_path, class:'btn btn-primary' %>
+  </div>
+</div>
+
+<section>
+  <table>
+    <caption>
+      마이페이지 1:1문의
+    </caption>
+    <thead>
+    <tr>
+      <th>구분</th>
+      <th>작성일</th>
+      <th>제목</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @inquiries.each do |inquiry| %>
+      <tr>
+        <td><%= inquiry.id %></td>
+        <td><%= l inquiry.created_at.to_date %></td>
+        <td><%= link_to inquiry.title, inquiry %></td>
+      </tr>
+    <% end %>
+    </table>
+</section>

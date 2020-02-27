@@ -1,0 +1,31 @@
+= render 'page_header', title: '회원 및 문의 관리 > 1:1 문의 현황 > 문의 상세', action: link_to('목록으로', admin_inquiries_path, class: 'btn btn-primary')
+
+%section.p-4
+  .mb-4.d-flex.justify-content-between.align-items-center
+    %h4 기본 정보
+
+  %table.table.table-bordered
+    %thead.thead-light
+      %tr
+        %th 구분
+        %th 등록일
+        %th 아이디
+
+    %tbody
+      %tr
+        %td= @inquiry.id
+        %td= @inquiry.created_at
+        %td= @inquiry.user.email if @inquiry.user.present?
+
+  = form_for [:admin, @inquiry] do |f|
+    %table.table.table-bordered
+      %tbody
+        %tr
+          %th 제목
+          %td= @inquiry.title
+        %tr
+          %th 문의 내용
+          %td= @inquiry.body
+
+    .text-right
+      = link_to '뒤로', admin_inquiries_path, class: 'btn btn-outline-secondary'

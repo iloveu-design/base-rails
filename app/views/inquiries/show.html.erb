@@ -1,0 +1,17 @@
+<div>
+  <section>
+    <span class="breadcrump">마이페이지 <i> &#47; </i><em> 1:1 문의</em></span>
+
+    <h3><%= @inquiry.title %></h3>
+    <p><span><%= @inquiry.user.email %></p>
+    <time><%= l @inquiry.created_at %></time>
+  </section>
+  <section>
+    <article>
+      <%= @inquiry.body %>
+    </article>
+  </section>
+  <section class="btn">
+    <%= link_to '목록으로', '/my/inquiries', class:'btn_border next width100' %>
+  </section>
+</div>

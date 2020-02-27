@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :passive_relationships, foreign_key: 'followed_id', class_name: 'Follow', dependent: :destroy
   has_many :followings, through: :active_relationships, source: :followed_user
   has_many :followers, through: :passive_relationships, source: :follower_user
+  has_many :inquiries, dependent: :destroy
 
   enum role: { admin: "admin", general: "general" }
 

@@ -1,0 +1,30 @@
+= render 'page_header', title: '회원 및 문의 관리 > 1:1 문의 현황', action: nil
+
+%section.p-4
+  .mb-4.d-flex.justify-content-between.align-items-center
+    %h5
+      문의 현황
+      %small #{Inquiry.count} 건
+
+  %table.table.table-bordered
+    %thead.thead-light
+      %tr
+        %th.text-nowrap 구분
+        %th 등록일
+        %th 아이디
+        %th 제목
+        %th 상태
+        %th
+
+    %tbody
+      - @inquiries.each do |inquiry|
+        %tr
+          %td= inquiry.id
+          %td= l inquiry.created_at
+          %td= inquiry.user.email if inquiry.user.present?
+          %td= inquiry.title
+          %td
+            = link_to '상세', [:admin, inquiry], class: 'btn btn-outline-primary btn-sm'
+
+  .d-flex.justify-content-center
+    = paginate @inquiries

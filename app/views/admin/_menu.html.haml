@@ -20,6 +20,12 @@
         = link_to '탈퇴 기록', admin_user_deletions_path, class: 'nav-link'
 
     %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+      %span 상담 관리
+    %ul.nav.flex-column
+      %li.nav-item
+        = link_to '상담 목록', admin_inquiries_path, class: 'nav-link'
+
+    %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
       %span 구독자 관리
     %ul.nav.flex-column
       %li.nav-item

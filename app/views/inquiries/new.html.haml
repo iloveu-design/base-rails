@@ -1,0 +1,49 @@
+%section.contents-wrap.ask_11
+  %h2.tit-h2
+    1:1 문의
+
+  = form_for @inquiry do |f|
+    = f.hidden_field :userid, value: current_user.try(:userid)
+
+    %div.contents-wrap
+      %table.tbl_4
+        %tbody
+          - if @inquiry.errors.any?
+            %tr
+              %td{colspan:2}
+                #error_explanation
+                  %h2= "#{pluralize(@inquiry.errors.count, "error")} prohibited this inquiry from being saved:"
+                  %ul
+                    - @inquiry.errors.full_messages.each do |message|
+                      %li= message
+          %tr
+            %th
+              제목
+            %td
+              = f.text_field:title, {class:'input-size', type:'text', placeholder:'제목을 입력해주세요.'}
+          %tr
+          %th
+            문의 내용
+          %td
+            = f.text_area :body, {class:'input-size', type:'text', placeholder:'문의 내용을 입력해주세요.'}
+
+    %div.btn-wrap.btn1
+      = f.submit '확인', {class:'primary'}
+
+:javascript
+  $(function() {
+    $('.primary').click(function(){
+      var tit = $('#inquiry_title');
+      var body = $('#inquiry_body');
+
+      if(tit.val() == ''){
+        alert('제목을 입력해주세요');
+        tit.focus();
+        return false;
+      }else if(body.val() == ''){
+        alert('문의내용을 입력해주세요');
+        body.focus();
+        return false;
+      }
+    });
+  });

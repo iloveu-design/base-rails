@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :inquiries, only: [:new, :create, :show]
   resources :spaces
   resources :reservations
 
@@ -29,6 +30,10 @@ Rails.application.routes.draw do
     end
   end
 
+  # my pages
+  get 'my/inquiries'
+
+  # static pages
   get 'pages/terms'
   get 'pages/privacy'
 
@@ -45,6 +50,8 @@ Rails.application.routes.draw do
     resources :notifications
     resources :subscriptions
     resources :user_deletions
+
+    resources :inquiries
 
     resources :spaces do
       member do
