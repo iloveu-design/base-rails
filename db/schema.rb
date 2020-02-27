@@ -254,7 +254,7 @@ ActiveRecord::Schema.define(version: 2020_02_26_121734) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_deletions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "user_deletions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "reason"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

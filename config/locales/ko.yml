@@ -78,6 +78,7 @@ ko:
         title: 제목
         body: 내용
         image: 이미지
+        thumb: 썸네일
 
   msgs:
     confirm:

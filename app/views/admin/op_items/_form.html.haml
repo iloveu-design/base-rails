@@ -9,11 +9,46 @@
         - @op_item_setting.each do |k, v|
           - if k != 'name'
             .form-group
+              - content = op_item.get_value(k)
               %label= I18n.t(k, scope: 'activerecord.attributes.op_item')
               - if v == 'string'
-                = text_field_tag "op_item[content][#{k}]", op_item.get_content(k), class: 'form-control'
+                = text_field_tag "op_item[content][#{k}]", content, class: "form-control"
               - if v == 'text'
-                = text_area_tag "op_item[content][#{k}]", op_item.get_content(k), class: 'form-control'
+                = text_area_tag "op_item[content][#{k}]", content, class: "form-control"
+              - if v == 'image'
+                .form-group-row.row
+                  .col-6
+                    = file_field_tag "op_item_#{op_item.sortable_id}_#{k}", data: { field_id: "op_item_content_#{k}" }, accept: 'image/png,image/gif,image/jpeg', class: "form-control form-op-item-image"
+                    = hidden_field_tag "op_item[content][#{k}]", content.try(:id), class: "form-control"
+                  .col-6
+                    - if !op_item.new_record? && content.present?
+                      = image_tag content.file.variant(resize: '300x'), class: 'card-img-top'
         = f.submit class: 'btn btn-primary'
         - unless op_item.new_record?
           = link_to '삭제', [:admin, op_item], method: :delete, remote: true, class: 'btn btn-outline-secondary'
+
+:javascript
+  $(document).ready(function() {
+    $(".form-op-item-image").on('change', function() {
+      var $target = $(this);
+
+      var data = new FormData;
+      var file = $target[0].files[0];
+
+      data.append('asset[file]', file);
+
+      $.ajax({
+        data: data,
+        type: 'POST',
+        url: '/radmin/assets',
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(data) {
+          var asset_field_dom_id = "#"+$target.data("field-id");
+          var $asset_field = $target.closest('form').find(asset_field_dom_id);
+          $asset_field.val(data.asset_id);
+        }
+      });
+    });
+  });

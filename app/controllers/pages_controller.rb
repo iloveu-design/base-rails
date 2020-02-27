@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+    @main_sliders = OpItem.where(category: "main_sliders")
   end
 
   def dev_login

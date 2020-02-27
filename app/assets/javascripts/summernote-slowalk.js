@@ -46,6 +46,8 @@ $(document).ready(function() {
       var data;
       data = new FormData;
 
+      console.log(file);
+
       var name = file.name;
       var is_image = file.type.split("/")[0] == "image";
 
@@ -54,7 +56,7 @@ $(document).ready(function() {
       $.ajax({
         data: data,
         type: 'POST',
-        url: '/admin/assets',
+        url: '/radmin/assets',
         cache: false,
         contentType: false,
         processData: false,
@@ -75,7 +77,7 @@ $(document).ready(function() {
     deleteFile = function(file) {
       $.ajax({
         type: 'DELETE',
-        url: "/admin/assets/"+file,
+        url: "/radmin/assets/"+file,
         cache: false,
         contentType: false,
         processData: false

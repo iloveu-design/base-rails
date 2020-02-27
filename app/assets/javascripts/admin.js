@@ -1,6 +1,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require jquery3
+//= require jquery_ujs
 //= require popper
 //= require bootstrap
 //= require bootstrap3-typeahead.min
@@ -22,5 +23,5 @@ $(document).ready(function() {
     });
   }, 2000);
 
-  $('.sortable').railsSortable();
+  $('[data-js-sortable]').railsSortable();
 });

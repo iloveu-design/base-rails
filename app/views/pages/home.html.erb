@@ -10,3 +10,13 @@
     </div>
   </div>
 </div>
+
+<div class="container">
+  <div class="jumbotron">
+    <% @main_sliders.each do |slider| %>
+      <h2><%= slider.get_value("title")%></h2>
+      <p><%= slider.get_value("body")%></p>
+      <%= image_tag slider.get_value("image").file.variant(resize: '300x') %>
+    <% end %>
+  </div>
+</div>
