@@ -1,0 +1,59 @@
+<section>
+  <h2>1:1 문의</h2>
+
+  <%= form_for @inquiry do |f| %>
+    <%= f.hidden_field :userid, value: current_user.try(:userid) %>
+    <div>
+      <table>
+        <tbody>
+         <% if @inquiry.errors.any? %>
+         <tr>
+           <td colspan="2">
+             <%= "#{pluralize(@inquiry.errors.count, "error")} prohibited this inquiry from being saved:" %>
+             <ul>
+               <% @inquiry.errors.full_messages.each do |message| %>
+                 <li><%= message %></li>
+               <% end %>
+             </ul>
+           </td>
+         </tr>
+         <% end %>
+        </tbody>
+        <tr>
+          <th>제목</th>
+        </tr>
+        <tr>
+          <td><%= f.text_field :title, {class:'input-size', type:'text', placeholder:'제목을 입력해주세요.'} %></td>
+        </tr>
+        <tr>
+          <th>내용</th>
+        </tr>
+        <tr>
+          <td><%= f.text_area :body, {class:'input-size', type:'text', placeholder:'문의 내용을 입력해주세요.'} %></td>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <%= f.submit '확인', {class:'primary'} %>
+    </div>
+  <% end %>
+</section>
+
+<script>
+    $(function() {
+        $('.primary').click(function(){
+            var tit = $('#inquiry_title');
+            var body = $('#inquiry_body');
+
+            if(tit.val() == ''){
+                alert('제목을 입력해주세요');
+                tit.focus();
+                return false;
+            }else if(body.val() == ''){
+                alert('문의내용을 입력해주세요');
+                body.focus();
+                return false;
+            }
+        });
+    });
+</script>
