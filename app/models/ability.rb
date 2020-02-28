@@ -17,6 +17,7 @@ class Ability
       elsif user.role == 'admin'
         can :manage, :all
         cannot [:create, :destroy], Board
+        cannot :manage, Setting
       end
     end
   end
