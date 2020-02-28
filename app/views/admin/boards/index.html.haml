@@ -1,4 +1,4 @@
-= render 'page_header', title: '게시판', action: link_to('게시판 추가하기', new_admin_board_path, class: 'btn btn-primary')
+= render 'page_header', title: '게시판', action: link_to('게시판 추가하기', new_admin_board_path, class: 'btn btn-primary') if can? :create, Board
 
 .p-4
   .pb-4
@@ -19,4 +19,4 @@
           %td= board.name
           %td.text-nowrap
             = link_to '수정', edit_admin_board_path(board), class: 'btn btn-outline-primary btn-sm'
-            = link_to '삭제', admin_board_path(board), method: :delete, class: 'btn btn-outline-danger btn-sm'
+            = link_to '삭제', admin_board_path(board), method: :delete, class: 'btn btn-outline-danger btn-sm' if can? :destroy, Board

@@ -1,65 +1,73 @@
 %nav.col-md-2.d-none.d-md-block.bg-light.sidebar.border-right
   .sidebar-sticky
-    %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
-      %span 메인 페이지 관리
-    %ul.nav.flex-column
-      - Setting.op_items.keys.each do |k|
+    - if can? :manage, Setting
+      %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+        %span 메인 페이지 관리
+      %ul.nav.flex-column
+        - Setting.op_items.keys.each do |k|
+          %li.nav-item
+            = link_to Setting.op_items[k]["name"], admin_op_items_path(category: k), class: 'nav-link'
+
+    - if can? :manage, User
+      %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+        %span 회원 관리
+      %ul.nav.flex-column
         %li.nav-item
-          = link_to Setting.op_items[k]["name"], admin_op_items_path(category: k), class: 'nav-link'
+          = link_to '전체 회원', admin_users_path, class: 'nav-link'
+        %li.nav-item
+          = link_to '웹알림', admin_notifications_path, class: 'nav-link'
+        %li.nav-item
+          = link_to '휴면 회원', hibernated_admin_users_path, class: 'nav-link'
+        %li.nav-item
+          = link_to '탈퇴 기록', admin_user_deletions_path, class: 'nav-link'
 
-    %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
-      %span 회원 관리
-    %ul.nav.flex-column
-      %li.nav-item
-        = link_to '전체 회원', admin_users_path, class: 'nav-link'
-      %li.nav-item
-        = link_to '웹알림', admin_notifications_path, class: 'nav-link'
-      %li.nav-item
-        = link_to '휴면 회원', hibernated_admin_users_path, class: 'nav-link'
-      %li.nav-item
-        = link_to '탈퇴 기록', admin_user_deletions_path, class: 'nav-link'
+    - if can? :manage, Inquiry
+      %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+        %span 상담 관리
+      %ul.nav.flex-column
+        %li.nav-item
+          = link_to '상담 목록', admin_inquiries_path, class: 'nav-link'
 
-    %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
-      %span 상담 관리
-    %ul.nav.flex-column
-      %li.nav-item
-        = link_to '상담 목록', admin_inquiries_path, class: 'nav-link'
+    - if can? :manage, Subscription
+      %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+        %span 구독자 관리
+      %ul.nav.flex-column
+        %li.nav-item
+          = link_to '구독자', admin_subscriptions_path, class: 'nav-link'
 
-    %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
-      %span 구독자 관리
-    %ul.nav.flex-column
-      %li.nav-item
-        = link_to '구독자', admin_subscriptions_path, class: 'nav-link'
-
-    %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
-      %span 공간 관리
-    %ul.nav.flex-column
-      %li.nav-item
-        = link_to '공간 관리', admin_spaces_path, class: "nav-link"
-      %li.nav-item
-        = link_to '대관 일정 관리', admin_reservations_path, class: "nav-link"
+    - if can? :manage, Space
+      %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+        %span 공간 관리
+      %ul.nav.flex-column
+        %li.nav-item
+          = link_to '공간 관리', admin_spaces_path, class: "nav-link"
+        %li.nav-item
+          = link_to '대관 일정 관리', admin_reservations_path, class: "nav-link"
 
     %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
       %span 프로그램 관리
 
-    %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
-      %span 게시판 관리
-    %ul.nav.flex-column
-      %li.nav-item= link_to '게시판 관리', admin_boards_path, class: "nav-link"
-      %li.nav-item= link_to '게시물 관리', admin_board_posts_path, class: "nav-link"
+    - if can? :manage, Board
+      %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+        %span 게시판 관리
+      %ul.nav.flex-column
+        %li.nav-item= link_to '게시판 관리', admin_boards_path, class: "nav-link"
+        %li.nav-item= link_to '게시물 관리', admin_board_posts_path, class: "nav-link"
 
-    %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
-      %span 약관 및 정책 관리
-    %ul.nav.flex-column
-      %li.nav-item
-        = link_to '서비스 이용 약관 관리', admin_policies_path(category: 'terms'), class: "nav-link"
-      %li.nav-item
-        = link_to '개인정보처리방침 관리', admin_policies_path(category: 'privacy'), class: "nav-link"
+    - if can? :manage, Policy
+      %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+        %span 약관 및 정책 관리
+      %ul.nav.flex-column
+        %li.nav-item
+          = link_to '서비스 이용 약관 관리', admin_policies_path(category: 'terms'), class: "nav-link"
+        %li.nav-item
+          = link_to '개인정보처리방침 관리', admin_policies_path(category: 'privacy'), class: "nav-link"
 
-    %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
-      %span 설정 관리
-    %ul.nav.flex-column
-      %li.nav-item
-        = link_to '권한 관리', admin_roles_path, class: "nav-link"
-      %li.nav-item
-        = link_to '설정 관리', admin_settings_path, class: "nav-link"
+    - if can? :manage, Setting
+      %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+        %span 설정 관리
+      %ul.nav.flex-column
+        %li.nav-item
+          = link_to '권한 관리', admin_roles_path, class: "nav-link"
+        %li.nav-item
+          = link_to '설정 관리', admin_settings_path, class: "nav-link"

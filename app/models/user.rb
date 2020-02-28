@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower_user
   has_many :inquiries, dependent: :destroy
 
-  enum role: { admin: "admin", general: "general" }
+  enum role: { super_admin: "super_admin", admin: "admin", general: "general" }
 
   scoped_search on: [:name, :uid, :email]
   scope :recent, -> { order("created_at DESC") }
