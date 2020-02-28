@@ -1,7 +1,0 @@
-.list-group
-  - @spaces.each do |space|
-    .list-group-item
-      .d-flex
-        %h5
-          = link_to space.name, space
-      %p= image_tag space.image.variant(resize: "200x") if space.image.attached?

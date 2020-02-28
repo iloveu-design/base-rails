@@ -1,0 +1,10 @@
+<div class="list-group">
+  <% @spaces.each do |space| %>
+  <div class="list-group-item">
+    <div class="d-flex">
+      <h5><%= link_to space.name, space %></h5>
+    </div>
+    <p><%= image_tag space.image.variant(resize: "200x") if space.image.attached? %></p>
+  </div>
+  <% end %>
+</div>
