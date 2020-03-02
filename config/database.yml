@@ -13,7 +13,7 @@ development:
   adapter: mysql2
   database: base_rails
   username: root
-  encoding: utf8
+  encoding: utf8mb4
   host: localhost
   timeout: 5000
 
@@ -22,7 +22,7 @@ staging:
   database: base_rails
   username: root
   password:
-  encoding: utf8
+  encoding: utf8mb4
   host: localhost
   timeout: 5000
 
@@ -31,7 +31,7 @@ production:
   database: base_rails
   username: <%= ENV['DB_USER_NAME'] %>
   password: <%= ENV['DB_USER_PW'] %>
-  encoding: utf8
+  encoding: utf8mb4
   host: localhost
   timeout: 5000
 
@@ -42,6 +42,6 @@ test:
   adapter: mysql2
   database: base_rails_test
   username: root
-  encoding: utf8
+  encoding: utf8mb4
   host: localhost
   timeout: 5000
