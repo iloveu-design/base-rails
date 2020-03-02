@@ -30,9 +30,7 @@ $(document).ready(function() {
           sendFile(files[0], $(this));
         },
         onMediaDelete: function(target, editor, editable) {
-          console.log(target);
           var asset_id = target[0].id.split('-').slice(-1)[0];
-          console.log(asset_id);
           if (!!asset_id) {
             deleteFile(asset_id);
           }
@@ -45,8 +43,6 @@ $(document).ready(function() {
     sendFile = function(file, self) {
       var data;
       data = new FormData;
-
-      console.log(file);
 
       var name = file.name;
       var is_image = file.type.split("/")[0] == "image";
