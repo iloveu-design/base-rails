@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 2020_02_27_091543) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "inquiries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "inquiries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.text "title"
     t.text "body"
     t.bigint "user_id"
