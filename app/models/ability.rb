@@ -11,7 +11,7 @@ class Ability
           i.user_id != user.id
         end
       end
-    else
+    elsif user
       if user.role == 'super_admin'
         can :manage, :all
       elsif user.role == 'admin'
