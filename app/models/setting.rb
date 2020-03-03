@@ -11,7 +11,7 @@ class Setting < RailsSettings::Base
     sender_email: "foo@bar.com"
   }
   field :op_items, type: :hash, default: {
-    main_sliders: { "name" => "enter names here", "title" => "string", "body" => "text", "image" => "image" }
+    main_sliders: { "name" => "슬라이드 배너", "title" => "string", "body" => "text", "image" => "image" }
   }
 
   # Define your fields
