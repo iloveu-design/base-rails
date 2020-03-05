@@ -1,0 +1,11 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "리스트") do |sheet|
+  sheet.add_row ['이메일', '아이디', '이름', '가입일자']
+  @users.each do |e|
+    data = []
+    data << e.email
+    data << e.name
+    data << e.created_at.to_date
+    sheet.add_row data
+  end
+end

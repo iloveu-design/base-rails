@@ -3,7 +3,12 @@ class Admin::UsersController < AdminController
     @users = User.all
 
     @users = @users.search_for(params[:q]) if params[:q].present?
-    @users = @users.page(params[:page])
+
+    if params[:format] == 'xlsx'
+      render xlsx: 'index.xlsx.axlsx', filename: "회원_#{Date.current.strftime('%Y%m%d')}"
+    else
+      @users = @users.page(params[:page])
+    end
   end
 
   def show
