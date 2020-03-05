@@ -1,4 +1,4 @@
-= render 'page_header', title: '전체 회원', action: link_to('엑셀 다운로드', admin_users_path(format: :xlsx, q: params[:q]), class: "btn btn-primary")
+= render 'page_header', title: '전체 회원', action: nil
 
 %section.p-4
   %section.pb-4
@@ -9,6 +9,7 @@
           = f.text_field :q, value: params[:q], placeholder: "ID, 이름, 이메일로 검색하세요", class: "form-control"
         .col-4
           = f.submit "검색", class: "btn btn-outline-primary"
+          = link_to('엑셀 다운로드', admin_users_path(format: :xlsx, q: params[:q]), class: "btn btn-primary")
 
   %table.table.table-bordered.table-striped
     %thead
