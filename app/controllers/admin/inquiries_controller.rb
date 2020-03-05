@@ -1,6 +1,6 @@
 class Admin::InquiriesController < AdminController
   def index
-    @inquiries = Inquiry.all
+    @inquiries = Inquiry.all.recent
 
     @inquiries = @inquiries.search_for(params[:q]) if params[:q].present?
     @inquiries = @inquiries.page(params[:page])

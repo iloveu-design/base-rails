@@ -25,7 +25,7 @@
           %td= @inquiry.title
         %tr
           %th 문의 내용
-          %td= @inquiry.body
+          %td= simple_format @inquiry.body
 
     .text-right
       = link_to '뒤로', admin_inquiries_path, class: 'btn btn-outline-secondary'
