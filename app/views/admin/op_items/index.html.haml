@@ -4,3 +4,28 @@
 %div{ "data-js-sortable" => "" }
   - @op_items.each_with_sortable_id do |op_item, sortable_id|
     = render 'form', op_item: op_item
+:javascript
+  $(document).ready(function() {
+    $(".form-op-item-image").on('change', function() {
+      var $target = $(this);
+
+      var data = new FormData;
+      var file = $target[0].files[0];
+
+      data.append('asset[file]', file);
+
+      $.ajax({
+        data: data,
+        type: 'POST',
+        url: '/radmin/assets',
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(data) {
+          var asset_field_dom_id = "#"+$target.data("field-id");
+          var $asset_field = $target.closest('form').find(asset_field_dom_id);
+          $asset_field.val(data.asset_id);
+        }
+      });
+    });
+  });
