@@ -1,4 +1,12 @@
 $(document).ready(function() {
+    initializeSummernote();
+});
+
+$(document).on('turbolinks:load', function() {
+    initializeSummernote();
+});
+
+function initializeSummernote() {
   $('[data-provider="summernote"]').each(function() {
     $(this).summernote({
       toolbar: [
@@ -81,4 +89,4 @@ $(document).ready(function() {
     }
 
   });
-});
+}
