@@ -23,5 +23,13 @@ $(document).ready(function() {
     });
   }, 2000);
 
-  $('[data-js-sortable]').railsSortable();
+  initializeSortable();
 });
+
+$(document).on('turbolinks:load', function() {
+  initializeSortable();
+});
+
+function initializeSortable() {
+  $('[data-js-sortable]').railsSortable();
+}
