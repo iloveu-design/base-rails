@@ -95,4 +95,5 @@
       = f.input :precautions, as: :text, placeholder: "준비 및 정리시간 무료 제공\n고급커피 무한 리필\n기본문구 및 집기 이용 가능"
       .form-group.row.mb-0
         .col-sm-9.offset-sm-3
+          = link_to '취소', admin_spaces_path, class: 'btn btn-outline-secondary'
           = f.button :submit, class: 'btn btn-primary'
