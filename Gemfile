@@ -27,6 +27,7 @@ gem 'by_star', git: "https://github.com/radar/by_star"
 # activestorage
 gem 'mini_magick', '~> 4.8'
 gem 'image_processing', '~> 1.2'
+gem 'active_storage_validations'
 
 # js
 gem 'turbolinks', '~> 5.2.0'
