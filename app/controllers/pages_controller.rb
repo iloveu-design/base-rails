@@ -9,6 +9,9 @@ class PagesController < ApplicationController
     redirect_to :root
   end
 
+  def reset_password_instructions
+  end
+
   def pdf
     respond_to do |format|
       format.html

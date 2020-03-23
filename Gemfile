@@ -27,7 +27,6 @@ gem 'by_star', git: "https://github.com/radar/by_star"
 # activestorage
 gem 'mini_magick', '~> 4.8'
 gem 'image_processing', '~> 1.2'
-gem 'active_storage_validations'
 
 # js
 gem 'turbolinks', '~> 5.2.0'
@@ -81,6 +80,10 @@ gem 'puma', '~> 3.11'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+# beanstalk
+gem 'mini_racer', platforms: :ruby
+gem "aws-sdk-s3", require: false
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

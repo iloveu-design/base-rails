@@ -30,6 +30,10 @@ Rails.application.routes.draw do
     end
   end
 
+  # tmp 
+  get 'reset_password_instructions', :to => "mails#reset_password_instructions"
+
+
   # my pages
   get 'my/inquiries'
 
