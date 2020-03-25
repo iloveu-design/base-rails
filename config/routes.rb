@@ -31,7 +31,12 @@ Rails.application.routes.draw do
   end
 
   # tmp 
+  get 'confirmation_instructions', :to => "mails#confirmation_instructions"
+  get 'email_changed', :to => "mails#email_changed"
+  get 'password_change', :to => "mails#password_change"
   get 'reset_password_instructions', :to => "mails#reset_password_instructions"
+  get 'unlock_instructions', :to => "mails#unlock_instructions"
+
 
 
   # my pages
