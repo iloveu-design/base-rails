@@ -9,6 +9,9 @@ $(document).on('turbolinks:load', function() {
 function initializeSummernote() {
   $('[data-provider="summernote"]').each(function() {
     $(this).summernote({
+      imageTitle: {
+        specificAltField: true,
+      },
       toolbar: [
         ['uploadcare', ['uploadcare']], // here, for example
         ["style", ["style"]],
@@ -24,6 +27,14 @@ function initializeSummernote() {
         ['view', ['fullscreen', 'codeview', 'undo']],
         ['help', ['help']]
       ],
+      popover: {
+        image: [
+          ['imagesize', ['imageSize100', 'imageSize50', 'imageSize25']],
+          ['float', ['floatLeft', 'floatRight', 'floatNone']],
+          ['remove', ['removeMedia']],
+          ['custom', ['imageTitle']],
+        ],
+      },
       height: 500,
       lang: 'ko-KR',
       fontNames: ['Noto Sans Korean', 'Nanum Myeongjo', 'Nanum Gothic', 'Malgun Gothic', 'gulim', 'Batang','Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', ],

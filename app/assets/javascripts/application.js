@@ -9,6 +9,7 @@
 //= require cocoon
 //= require jquery-ui
 //= require summernote/summernote-bs4.min
+//= require summernote-image-title
 //= require summernote-slowalk
 
 $(document).ready(function() {
