@@ -8,6 +8,11 @@ class Admin::OpItemsController < AdminController
 
   def create
     @op_item = OpItem.new(op_item_params)
+
+    if OpItem.exists?(category: @op_item.category, seq: 0)
+      OpItem.update_all("seq=seq+1")
+    end
+
     @op_item.save
     redirect_to admin_op_items_path(category: @op_item.category)
   end
