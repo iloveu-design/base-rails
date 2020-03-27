@@ -1,7 +1,7 @@
 = render 'page_header', title: '설정 관리', action: nil
 
 .p-4
-  = form_for(Setting.new, url: admin_settings_path) do |f|
+  = form_with model: Setting.new, url: admin_settings_path do |f|
     .form-group
       %label.control-label 사이트명(site_name)
       = f.text_field :site_name, value: Setting.site_name, class: "form-control", placeholder: ""

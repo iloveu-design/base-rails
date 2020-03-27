@@ -4,7 +4,7 @@
   .pb-4.d-flex.justify-content-between.align-items-center
     %h4 게시물
     %div
-      = form_tag admin_board_posts_path, method: :get do
+      = form_with url: admin_board_posts_path, method: :get do
         = select_tag :board, options_for_select([''] + Board.all.map{|b| [b.name, b.id]}, params[:board]), { onchange: "this.form.submit();", class: 'form-control' }
 
   %table.table.table-bordered.table-striped

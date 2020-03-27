@@ -1,7 +1,7 @@
 <section>
   <h2>1:1 문의</h2>
 
-  <%= form_for @inquiry do |f| %>
+  <%= form_with model: @inquiry do |f| %>
     <%= f.hidden_field :userid, value: current_user.try(:userid) %>
     <div>
       <table>
