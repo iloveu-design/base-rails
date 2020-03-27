@@ -25,4 +25,4 @@
                       = image_tag content.file.variant(resize: '300x'), class: 'card-img-top'
         = f.submit class: 'btn btn-primary'
         - unless op_item.new_record?
-          = link_to '삭제', [:admin, op_item], method: :delete, remote: true, class: 'btn btn-outline-secondary'
+          = link_to '삭제', [:admin, op_item], method: :delete, data: { confirm: '삭제하시겠습니까?' }, remote: true, class: 'btn btn-outline-secondary'
