@@ -19,7 +19,7 @@ ko:
       already_authenticated: '이미 로그인하셨습니다.'
       unauthenticated: '이용하시려면 로그인하거나 가입하셔야 합니다.'
       unconfirmed: '계정이 승인 대기중입니다.'
-      locked: '해당 아이디는 탈퇴처리 되었습니다. 관련 사항은 (사)한국자원봉사문화(02-415-6575)로 문의해주시기 바랍니다.'
+      locked: '해당 아이디는 탈퇴처리 되었습니다.'
       invalid: '등록되지 않은 아이디이거나, 아이디 또는 비밀번호를 잘못 입력하셨습니다'
       invalid_token: '잘못된 인증 토큰 입니다.'
       timeout: '세션이 만료 되었습니다, 계속하시려면 로그인해주세요.'
@@ -58,6 +58,6 @@ ko:
       confirmation_instructions:
         subject: '이메일 주소 확인 메일'
       reset_password_instructions:
-        subject: '[서울시도시재생지원센터]비밀번호 재설정 메일입니다.'
+        subject: '[Base-rails]비밀번호 재설정 메일입니다.'
       unlock_instructions:
         subject: '계정 Unlock 메일'
