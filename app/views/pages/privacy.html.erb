@@ -1,2 +1,15 @@
 <h1>Policy</h1>
-<%= raw Policy.privacy.body if Policy.privacy.present? %>
+<div>
+    <label>개정이력</label>
+    <div>
+    <label for="select"><%= l @policy.created_at.to_date %></label>
+    <select id="select" onchange="location.href=$(this).val();">
+        <%- Policy.where(category: "privacy").each do |policy| %>
+        <option value="/pages/privacy?id=<%= policy.id %>" <%= @policy == policy ? "selected" : "" %>><%= l policy.created_at.to_date %></option>
+        <% end %>
+    </select>
+    </div>
+</div>
+<div>
+    <%= raw @policy.body if @policy.present? %>
+</div>
