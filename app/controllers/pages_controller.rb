@@ -28,4 +28,12 @@ class PagesController < ApplicationController
     WickedPdf.config = {
     }
   end
+
+  def terms
+    @policy = params[:id].present? ? Policy.find(params[:id]) : Policy.terms
+  end
+
+  def privacy
+    @policy = params[:id].present? ? Policy.find(params[:id]) : Policy.privacy
+  end
 end
