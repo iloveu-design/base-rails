@@ -1,5 +1,9 @@
 = render 'page_header', title: '전체 회원', action: nil
 
+-# . -> class
+-# % -> html tag 
+-# # -> id
+
 %section.p-4
   %section.pb-4
     = form_with url: admin_users_path, local: true, method: :get do |f|

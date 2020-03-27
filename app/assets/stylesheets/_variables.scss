@@ -17,6 +17,7 @@ $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black:    #000 !default;
 
+
 $grays: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $grays: map-merge(
@@ -65,6 +66,11 @@ $colors: map-merge(
   ),
   $colors
 );
+
+// project-color start
+$p-primary: #ea4c57;
+
+// project-color end
 
 $primary:       $blue !default;
 $secondary:     $gray-600 !default;
