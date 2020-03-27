@@ -1,2 +1,2 @@
 alert("<%= I18n.t("msgs.success.destroyed") %>");
-$("#<%= dom_id(@op_item) %>").fadeOut();
+$("#<%= dom_id(@op_item, :edit) %>").closest(".ui-sortable-handle").fadeOut();
