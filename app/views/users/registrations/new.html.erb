@@ -17,15 +17,15 @@
                 input_html: { autocomplete: "new-password" } %>
     <div class="form-group">
       <label class="form-check">
-        <input class="form-check-input" type="checkbox" id="sev_agree" />
-        <label class="form-check-label" for="sev_agree">서비스 이용 약관에 동의합니다.</label>
+        <%= f.check_box :terms_and_conditions, class: 'form-check-input' %>
+        <%= f.label :terms_and_conditions, label: '이용약관에 동의합니다.', class: 'form-check-label' %>
       </label>
       <textarea class="form-control"><%= raw Policy.terms.body if Policy.terms.present? %></textarea>
     </div>
     <div class="form-group">
       <label class="form-check">
-        <input class="form-check-input" type="checkbox" id="pri_agree" />
-        <label class="form-check-label" for="pri_agree">개인정보 수집 및 이용에 동의합니다</label>
+        <%= f.check_box :privacy_policy, class: 'form-check-input' %>
+        <%= f.label :privacy_policy, label: '개인정보 수집 및 이용에 동의합니다.', class: 'form-check-label' %>
       </label>
       <textarea class="form-control"><%= raw Policy.privacy.body if Policy.privacy.present? %></textarea>
     </div>
@@ -34,22 +34,6 @@
   <div class="form-actions">
     <%= f.button :submit, "Sign up" %>
   </div>
-
-  <script>
-      $(function(){
-          $("#new_user").on("submit", function(){
-              if(!$("#sev_agree").is(":checked")){
-                  alert('서비스 이용 약관에 동의 하셔야 합니다.');
-                  $("#sev_agree").focus();
-                  return false;
-              }else if(!$("#pri_agree").is(":checked")){
-                  alert('개인정보 수집 및 이용에 동의 하셔야 합니다.');
-                  $("#pri_agree").focus();
-                  return false;
-              }
-          });
-      });
-  </script>
 <% end %>
 
 <%= render "users/shared/links" %>

@@ -19,7 +19,11 @@ class User < ApplicationRecord
   scope :recent, -> { order("created_at DESC") }
   scope :hibernated, -> { where(hibernated: true) }
 
-  #validates :name, presence: :true
+  attr_accessor :terms_and_conditions
+  validates :terms_and_conditions, acceptance: true, on: :create
+
+  attr_accessor :privacy_policy
+  validates :privacy_policy, acceptance: true, on: :create
 
   after_create do |obj|
     if obj.role.nil?
