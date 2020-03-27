@@ -19,6 +19,12 @@ class User < ApplicationRecord
   scope :recent, -> { order("created_at DESC") }
   scope :hibernated, -> { where(hibernated: true) }
 
+  validate :password_complexity
+  def password_complexity
+    return if password.blank? || password =~ /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/
+    errors.add :password, '비밀번호는 소문자+숫자+기호 조합 8글자 이상으로 입력해주세요.'
+  end
+
   attr_accessor :terms_and_conditions
   validates :terms_and_conditions, acceptance: true, on: :create
 
