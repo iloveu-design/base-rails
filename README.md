@@ -43,4 +43,10 @@ bin/rails db:setup
 bin/rails s
 ```
 
+개발 환경인 경우 초기 관리자 계정이 설정되며 `db/seeds.rb` 에서 확인 가능합니다. 사용자가 없을 경우 다음과 같이 실행합니다.
+
+```
+bin/rails db:seed
+```
+
 ## capistrano 배포 가이드 
