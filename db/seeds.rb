@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 case Rails.env
-when "development"
+when "development", "staging"
   unless User.exists?(email: 'dev@slowalk.co.kr')
     user = User.create! name: '최고 관리자', email: 'dev@slowalk.co.kr', password: 'qwer1234!', password_confirmation: 'qwer1234!'
     user.role = "super_admin"
