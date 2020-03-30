@@ -8,6 +8,7 @@
 /.bundle
 # tmp_working_bono에서 git push할 때 bundle 오류 나서 추가.
 vendor/bundle/
+vendor/cache/
 
 # Ignore the default SQLite database.
 /db/*.sqlite3

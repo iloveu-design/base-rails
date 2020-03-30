@@ -1,162 +1,143 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <!--icon link-->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    
     <!--font link-->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&display=swap&subset=korean" rel="stylesheet">
 
     <style>
-      html{
+      /* Email styles need to be inline */
+       
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
         width: 680px;
-        height: 816px;
+        height: 861px;
+        margin: 0 auto;
+        display: block;
       }
-      html, body{
-        margin:0px;
-      }
-
-      /*all*/
-      .Rectangle_header_box, .Rectangle_button{
-        background-color: #6e61f1;
-        position : absolute;
-        left: 56px;
-      }
-      .Rectangle_hr, .Rectangle_footer_box{
-        background-color: #f5f5f5;
-        position:absolute;
-
-      }
-
-      .header_title, .session_text, .Rectangle_button_text, .footer_text, .Rectangle_footer_box_text{
+      
+      .font {
         font-family: 'Noto Sans KR', sans-serif;
         font-stretch: normal;
         font-style: normal;
         letter-spacing: normal;
       }
-      .text_highlight, .Rectangle_footer_box_text_highlight{
-        color: #6e61f1;
+
+      .font--text {
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 1.5;
       }
 
-      /*header*/
-      /*회원가입 위에 있는 상자 */
-      .Rectangle_header_box{
+      .header__rectangle {
+        margin-top: 40px;
+        margin-bottom: 64px;
         width: 120px;
         height: 48px;
-        top: 40px;
+        background-color: #6e61f1;
       }
-      /*회원가입 완료 타이틀*/
-      .header_title {
-        width: 240px;
+
+      .header__title {
+        /* width: 230px; 헤더 사이즈는 비정형 */
         height: 48px;
-        font-size: 40px;
         font-weight: bold;
+        font-size: 40px;
         line-height: 1.2;
         color: #2c2c2c;
-        left: 56px;
-        top:152px;
-        position : absolute;
       }
-      .Rectangle-Copy {
+
+      .header__line {
         width: 568px;
         height: 1px;
         background-color: #dcdcde;
+
+        margin-top: 55px;
+
         border-bottom: 0px;
         border-top: 0px;
-        left:56px;
-        top:255px;
-        position : absolute;
       }
-      
-      /*session*/
-      .session_text{
-        width: 568px;
-        height: 72px;
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 1.5;
-        color: #4f4f4f;
-        position:absolute;
-        left:56px;
-        top: 312px;
-      }
-      
-      .Rectangle_button{
-        width: 235px;
+
+      .button {
+        width: 250px; /* 비정형 */
         height: 56px;
         border-radius: 28px;
         top: 416px;
+        background-color: #6e61f1;
       }
 
-      .Rectangle_button_text{
-        width: 107px;
-        height: 24px;
-        font-size: 16px;
-        font-weight: bold;
-        line-height: 1.5;
+      .button__title {
         color: #ffffff;
-        position: relative;
-        left:64px;
-        top: 16px;
+        /* width: 122px; */
+        height: 24px;
+        
+        padding: 16px 63px 16px 63px;
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle;
+        /* margin-left: 56px; */
       }
 
-      /*footer*/
-      .Rectangle_hr {
-        width: 680px;
+      .section {
+        margin-top: 56px;
+        margin-bottom: 120px;
+      }
+
+      .section__text {
+        /* width: 568px; */
+        /* height: 24px; */
+        color: #4f4f4f;
+      }
+
+      .footer {
+        height: 184px;
+      }
+
+      .footer__contents {
+        text-align: center;
+      }
+
+      .footer__line {
+        /* width: 680px; */
         height: 8px;
+        border: 1px solid #dcdcde;
         opacity: 0.8;
-        top: 632px;
+        background-color: #f5f5f5;
       }
-      .xeicon{
-        width: 16px;
+
+      .footer__text {
+        width: 568px;
         height: 24px;
-        font-family: xeicon;
-        font-size: 16px;
-        font-weight: normal;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.5;
-        letter-spacing: normal;
         color: #727272;
       }
-      .footer_text{
-        width: 584px;
-        height: 24px;
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 1.5;
-        color: #727272;
-        position :relative;
-        left:56px;
-        top:664px;
-      }
-      .Rectangle_footer_box {
+
+      .link {
         width: 568px;
         height: 72px;
-        left: 56px;
-        top: 712px;
+        background-color: #f5f5f5;
       }
 
-      .Rectangle_footer_box_text{
-        width: 170px;
-        height: 24px;
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 1.5;
-        position:relative;
-        left:72px;
-        top: 24px;
+      .link__text {
+        padding: 24px 71px 24px 71px;
       }
 
-      .Rectangle_footer_box_text_highlight{
+      .link__text--title {
         width: 170px;
         height: 24px;
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 1.5;
-        left:250px;
-        top: 24px;
+        color: #4f4f4f;
+      }
+
+      a, .link__text--url {
+        width: 247px;
+        height: 24px;
+        color: #6e61f1;
       }
     </style>
   </head>
