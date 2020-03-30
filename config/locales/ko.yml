@@ -79,6 +79,7 @@ ko:
         body: 내용
         image: 이미지
         thumb: 썸네일
+        url: URL
 
   msgs:
     confirm:
