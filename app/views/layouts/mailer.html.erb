@@ -10,8 +10,6 @@
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&display=swap&subset=korean" rel="stylesheet">
 
     <style>
-      /* Email styles need to be inline */
-       
       * {
         margin: 0;
         padding: 0;
@@ -55,59 +53,85 @@
         height: 48px;
         font-weight: bold;
         font-size: 40px;
-        line-height: 1.2;
-        color: #2c2c2c;
       }
-
-      .header__line {
+      /*All*/
+      html{
+        width: 680px;
+        height: 816px;
+      }
+      body{
+        margin:0px;
+      }
+      /*header*/
+      .rectangle_header_box{
+        width: 120px;
+        height: 48px;
+        background-color: #6e61f1;
+        display: inline-block;
+        margin: 40px 0px 0px 56px;
+      }
+      .header_title{
+        height: 48px;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 40px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.2;
+        letter-spacing: normal;
+        color: #2c2c2c;
+        margin: 64px 0px 0px 56px;
+      }
+      .rectangle_hr1{
         width: 568px;
         height: 1px;
         background-color: #dcdcde;
-        margin-top: 55px;
-        border-bottom: 0px;
-        border-top: 0px;
+        border:0px;
+        margin: 55px 0px 56px 56px;
       }
 
-      .button {
-        width: 250px; /* 비정형 */
+      /*body*/
+      .session_text{
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        color: #4f4f4f;
+        margin: 0px 0px 0px 56px;
+      }
+      
+      .text_highlight{
+        color: #6e61f1;
+      }
+      .rectangle_button{
+        width: 235px;
         height: 56px;
         border-radius: 28px;
-        top: 416px;
         background-color: #6e61f1;
+        margin: 32px 0px 32px 56px;
       }
-
-      .button__title {
-        color: #ffffff;
+      .rectangle_button_text{
+        width: 107px;
         height: 24px;
-        
-        padding: 16px 65px 16px 65px;
-        text-align: center;
-        display: table-cell;
-        vertical-align: middle;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        color: #ffffff;
+        position: relative;
+        left:64px;
+        top:16px;
       }
 
-      .section {
-        margin-top: 56px;
-        margin-bottom: 120px;
-      }
-
-      .section__text {
-        color: #4f4f4f;
-        margin-top: 32px;
-        margin-bottom: 32px;
-      }
-
-      .footer {
-        height: 184px;
-      }
-
-      .footer__contents {
-        text-align: center;
-        margin-left: 56px;
-        margin-right: 56px;
-      }
-
-      .footer__line {
+      /*footer*/
+      .rectangle_hr2{
+        width: 100%;
         height: 8px;
         border: 1px solid #dcdcde;
         opacity: 0.8;
@@ -142,6 +166,65 @@
       .link__text--url {
         width: 247px;
         height: 24px;
+        border: 0px;
+        margin-top: 128px;
+      }
+      .footer_text{
+        width: 568px;
+        height: 24px;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        color: #727272;
+        margin: 24px 0px 0px 56px;
+      }
+      .xeicon{
+        width: 16px;
+        height: 24px;
+        font-family: xeicon;
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        color: #727272;
+      }
+      .rectangle_footer_box{
+        width: 568px;
+        height: 72px;
+        background-color: #f5f5f5;
+        margin: 24px 0px 0px 56px;
+      }
+      .rectangle_footer_box_text{
+        width: 170px;
+        height: 24px;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        color: #4f4f4f;
+        position:relative;
+        left:72px;
+        top:24px;
+      }
+      .rectangle_footer_box_link_text{
+        width: 247px;
+        height: 24px;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
         color: #6e61f1;
         text-decoration: none;
       }
