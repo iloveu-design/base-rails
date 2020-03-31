@@ -2,18 +2,38 @@
 <html lang="ko">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
+​
     <!--icon link-->
     <link href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css" rel="stylesheet">
     
     <!--font link-->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&display=swap&subset=korean" rel="stylesheet">
-
+​
     <style>
+      /*
+        SCSS로 처리해야 할 속성
+​
+        .font {
+          font-family: 'Noto Sans KR', sans-serif;
+          font-stretch: normal;
+          font-style: normal;
+          letter-spacing: normal;
+        }
+        
+        .header, .section, .footer-context {
+          margin-left: 56px;
+        }
+      }
+        컬러코드 전부 정리 (밑의 것 외에도)
+        main-color: #6e61f1;
+        box-color: #f5f5f5;
+        footer-text-color: #727272;
+      */
+      
       * {
         margin: 0;
       }
-
+​
       body {
         width: 680px;
         margin: 0 auto;
@@ -24,20 +44,20 @@
         margin-left: 56px;
         margin-right: 56px;
       }
-
+​
       .font {
         font-family: 'Noto Sans KR', sans-serif;
         font-stretch: normal;
         font-style: normal;
         letter-spacing: normal;
       }
-
+​
       .font--text {
         font-weight: normal;
         font-size: 16px;
         line-height: 1.5;
       }
-
+​
       .header__rectangle {
         margin-top: 40px;
         margin-bottom: 64px;
@@ -45,59 +65,35 @@
         height: 48px;
         background-color: #6e61f1;
       }
-
+​
       .header__title {
         /* width: 230px; 헤더 사이즈는 비정형 */
         height: 48px;
         font-weight: bold;
         font-size: 40px;
-      }
-      /*All*/
-      html{
-        width: 680px;
-        height: 816px;
-      }
-      body{
-        margin:0px;
-      }
-      /*header*/
-      .rectangle_header_box{
-        width: 120px;
-        height: 48px;
-        background-color: #6e61f1;
-        display: inline-block;
-        margin: 40px 0px 0px 56px;
-      }
-      .header_title{
-        height: 48px;
-        font-family: 'Noto Sans KR', sans-serif;
-        font-size: 40px;
-        font-weight: bold;
-        font-stretch: normal;
-        font-style: normal;
         line-height: 1.2;
-        letter-spacing: normal;
         color: #2c2c2c;
-        margin: 64px 0px 0px 56px;
       }
-      .rectangle_hr1{
+​
+      .header__line {
         width: 568px;
         height: 1px;
         background-color: #dcdcde;
         border:0px;
         margin: 55px 0px 56px 56px;
       }
-
+​
       .button {
         /* width: 250px; 비정형 */
         height: 56px;
         display: inline-block;
         border-radius: 28px;
+        top: 416px;
         background-color: #6e61f1;
-        margin: 32px 0px 32px 56px;
       }
-      .rectangle_button_text{
-        width: 107px;
+​
+      .button__title {
+        color: #ffffff;
         height: 24px;
         
         padding: 16px 63px 16px 63px;
@@ -105,33 +101,33 @@
         display: table-cell;
         vertical-align: middle;
       }
-
+​
       .section {
         margin-top: 56px;
         margin-bottom: 120px;
       }
-
+​
       .section__text {
         color: #4f4f4f;
         margin-top: 32px;
         margin-bottom: 32px;
       }
-
+​
       .section__text__box {
         width: 568px;
         border-top: 1px solid #dcdcdc;
         border-bottom: 1px solid #dcdcdc;
         background-color: #f5f5f5;
       }
-
+​
       .section__text__box--list {
         list-style: none;
       }
-
+​
       .section__text__box--list li {
         margin-bottom: 8px;
       }
-
+​
       .section__text__box--list li::before {
         content: "\2022";
         color: #6e61f1;
@@ -140,131 +136,70 @@
         width: 1em;
         margin-left: -1em;
       }
-
+​
       .section__text--highlight{
         color: #6e61f1;
       }
-
+​
       .footer {
         height: 184px;
       }
-
+​
       .footer__contents {
         text-align: center;
         margin-left: 56px;
         margin-right: 56px;
       }
-
-      /*footer*/
-      .rectangle_hr2{
-        width: 100%;
+​
+      .footer__line {
         height: 8px;
         border: 1px solid #dcdcdc;
         opacity: 0.8;
         background-color: #f5f5f5;
       }
-
+​
       .xeicon {
         font-family: 'xeicon', sans-serif;
       }
-
+​
       .footer__text {
         width: 568px;
         height: 24px;
         color: #727272;
         margin-top: 24px;
       }
-
+​
       .footer__link {
         width: 568px;
         height: 72px;
         background-color: #f5f5f5;
         margin-top: 24px;
       }
-
+​
       .footer__link__text {
         line-height: 72px;
         width: 170px;
         height: 24px;
         color: #4f4f4f;
       }
-
+​
       .url {
         width: 247px;
         height: 24px;
-        border: 0px;
-        margin-top: 128px;
-      }
-      .footer_text{
-        width: 568px;
-        height: 24px;
-        font-family: 'Noto Sans KR', sans-serif;
-        font-size: 16px;
-        font-weight: normal;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.5;
-        letter-spacing: normal;
-        color: #727272;
-        margin: 24px 0px 0px 56px;
-      }
-      .xeicon{
-        width: 16px;
-        height: 24px;
-        font-family: xeicon;
-        font-size: 16px;
-        font-weight: normal;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.5;
-        letter-spacing: normal;
-        color: #727272;
-      }
-      .rectangle_footer_box{
-        width: 568px;
-        height: 72px;
-        background-color: #f5f5f5;
-        margin: 24px 0px 0px 56px;
-      }
-      .rectangle_footer_box_text{
-        width: 170px;
-        height: 24px;
-        font-family: 'Noto Sans KR', sans-serif;
-        font-size: 16px;
-        font-weight: normal;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.5;
-        letter-spacing: normal;
-        color: #4f4f4f;
-        position:relative;
-        left:72px;
-        top:24px;
-      }
-      .rectangle_footer_box_link_text{
-        width: 247px;
-        height: 24px;
-        font-family: 'Noto Sans KR', sans-serif;
-        font-size: 16px;
-        font-weight: normal;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.5;
-        letter-spacing: normal;
         color: #6e61f1;
       }
-
+​
       .section__text--url {
         text-decoration: none;
       }
-
+​
       .footer__link__text--url {
         margin-left: 4px;
         text-decoration: underline;
       }
     </style>
   </head>
-
+​
   <body>
     <%= yield %>
   </body>
