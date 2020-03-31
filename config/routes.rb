@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   get 'password_change', :to => "mails#password_change"
   get 'reset_password_instructions', :to => "mails#reset_password_instructions"
   get 'unlock_instructions', :to => "mails#unlock_instructions"
-
+  get 'program_accepted', :to => "mails#program_accepted"
 
 
   # my pages
