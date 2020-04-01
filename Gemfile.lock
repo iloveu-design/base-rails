@@ -172,6 +172,9 @@ GEM
     erubis (2.7.0)
     et-orbi (1.2.2)
       tzinfo
+    exception_notification (4.4.0)
+      actionmailer (>= 4.0, < 7)
+      activesupport (>= 4.0, < 7)
     execjs (2.7.0)
     faker (1.7.3)
       i18n (~> 0.5)
@@ -457,6 +460,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   dotenv-rails
+  exception_notification
   faker (~> 1.7.3)
   haml-rails (~> 1.0)
   image_processing (~> 1.2)

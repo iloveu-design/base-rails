@@ -23,6 +23,7 @@ gem 'acts-as-taggable-on', '~> 6.0'
 gem 'ancestry'
 gem "scoped_search"
 gem 'by_star', git: "https://github.com/radar/by_star"
+gem 'exception_notification'
 
 # activestorage
 gem 'mini_magick', '~> 4.8'
