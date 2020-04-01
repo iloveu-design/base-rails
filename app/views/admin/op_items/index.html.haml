@@ -13,6 +13,7 @@
       var file = $target[0].files[0];
 
       data.append('asset[file]', file);
+      $.blockUI({ message: '파일을 첨부하는 중입니다.' });
 
       $.ajax({
         data: data,
@@ -25,8 +26,10 @@
           var asset_field_dom_id = "#"+$target.data("field-id");
           var $asset_field = $target.closest('form').find(asset_field_dom_id);
           $asset_field.val(data.asset_id);
+          $.unblockUI();
         },
         error: function(jqXHR) {
+          $.unblockUI();
           alert("파일 첨부중 오류가 발생했습니다. 다시 시도해주세요.");
           console.error(jqXHR);
         }

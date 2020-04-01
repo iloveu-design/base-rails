@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/rusanu/blockuijs-rails.git
+  revision: 56e727429fa876fa03eade459404c98d74bf32e8
+  specs:
+    blockuijs-rails (0.1.0)
+      rails (>= 3.1)
+
+GIT
   remote: https://github.com/radar/by_star
   revision: 3b538097ee90b01a5ffa13a158ebb615f7b65ee5
   specs:
@@ -421,6 +428,7 @@ DEPENDENCIES
   aws-sdk-s3
   axlsx (= 2.1.0.pre)
   axlsx_rails
+  blockuijs-rails!
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.3.1)
   bootstrap_autocomplete_input

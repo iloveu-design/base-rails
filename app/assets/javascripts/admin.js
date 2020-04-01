@@ -14,6 +14,7 @@
 //= require summernote-image-title
 //= require summernote-slowalk
 //= require turbolinks
+//= require jquery.blockUI
 
 $(document).ready(function() {
   bsCustomFileInput.init();

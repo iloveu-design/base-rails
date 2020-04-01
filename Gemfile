@@ -45,6 +45,7 @@ gem 'summernote-rails'
 gem 'cocoon'
 gem 'browser'
 gem 'rails_sortable'
+gem 'blockuijs-rails',  :git => 'git://github.com/rusanu/blockuijs-rails.git'
 
 # payment
 gem "attr_encrypted"
