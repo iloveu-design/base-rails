@@ -20,7 +20,7 @@ div {
 
 .jumbotron {
   background-color: $white;
-  border-bottom: 4px solid $black;
+  /*border-bottom: 4px solid $black;*/
 }
 
 .nav-link {
@@ -110,4 +110,14 @@ table a {
 .sidebar-sticky {
   margin-top: 48px;
 }
+<<<<<<< HEAD
 >>>>>>> [관리자] 3차 퍼블리싱 - 메뉴 사이드바
+=======
+
+.div-hr{
+  width: 80%;
+  height: 4px;
+  background-color: #000000;
+  margin-left: 31px;
+}
+>>>>>>> 전체 회원 hr 수정
