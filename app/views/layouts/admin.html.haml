@@ -13,10 +13,18 @@
     = stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
 
   %body
-    %nav.navbar.navbar-dark.fixed-top.flex-md-nowrap.p-0.shadow 
-      -# .bg-p-primary
-      %a.navbar-brand.col-sm-3.col-md-2.mr-0{:href => "#"} Base Rails
+    %nav.navbar.navbar-dark.fixed-top.flex-md-nowrap.p-0.shadow
+      %a.navbar-brand.col-sm-3.col-md-2.mr-0{:href => "#"}
+        = image_tag '/app/assets/images/bitmap.png', class: 'bitmap'
       %ul.navbar-nav.px-3
+        %li.nav-item.text-nowrap
+          = image_tag '/app/assets/images/home.png', class: 'nav-icon'
+        %li.nav-item.text-nowrap
+          %a.nav-link{:href => "#"} 홈페이지로 가기
+        %li.nav-item.text-nowrap
+          %div.nav-hr
+        %li.nav-item.text-nowrap
+          = image_tag '/app/assets/images/logout.png', class: 'nav-icon'
         %li.nav-item.text-nowrap
           - if user_signed_in?
             = link_to '로그아웃', destroy_user_session_path, class: "nav-link", method: :delete
