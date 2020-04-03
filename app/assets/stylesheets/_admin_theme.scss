@@ -1,7 +1,56 @@
-.menu-group-title{
+.menu-group-title {
   color: $p-primary;
 }
-.btn-outline-primary{
+
+.btn-primary {
+  background-color: $p-primary;
+  border-color: $p-primary;
+}
+
+.btn-outline-primary {
   color: $p-primary;
   border-color: $p-primary;
+}
+
+.jumbotron {
+  background-color: $white;
+  border-bottom: 4px solid $black;
+}
+
+.nav-link {
+  color: $body-color;
+}
+
+.navbar {
+  background-color: $p-primary;
+}
+
+.sidebar {
+  border-right: 1px solid #d8d8d8;
+}
+
+.p-4 {
+  padding: 1.5rem 1.5rem 1.5rem 0;
+}
+
+.table-bordered,
+.table-bordered th,
+.table-bordered td {
+  border: none;
+}
+
+.table-bordered thead {
+  // width: 100%;
+  border-top: 2px solid $body-color;
+  border-bottom: 2px solid $body-color;
+  border-collapse: collapse;
+}
+
+.table-bordered td {
+  border-top: 1px solid $body-color;
+  border-bottom: 1px solid $body-color;
+}
+
+table a {
+  color: $body-color;
 }

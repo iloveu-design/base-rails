@@ -1,6 +1,8 @@
-%nav.col-md-2.d-none.d-md-block.bg-light.sidebar.border-right
+%nav.col-md-2.d-none.d-md-block.sidebar
+  -# .bg-light
   .sidebar-sticky
     - if can? :manage, OpItem
+    %div.div-sidebar
       %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
         %span.menu-group-title 메인 페이지 관리
       %ul.nav.flex-column

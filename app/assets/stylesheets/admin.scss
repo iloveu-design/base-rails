@@ -1,7 +1,7 @@
-@import 'bootstrap/functions';
+@import "bootstrap/functions";
 @import "variables";
 @import "bootstrap";
-@import "admin_theme";
+@import "_admin_theme";
 @import "summernote-bs4";
 
 .sidebar .nav-link {
@@ -10,9 +10,9 @@
 }
 
 .w-100px {
-  width: 100px
+  width: 100px;
 }
 
 .custom-file-label::after {
-  content: '파일선택'
+  content: "파일선택";
 }
