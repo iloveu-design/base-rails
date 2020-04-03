@@ -1,0 +1,113 @@
+<<<<<<< HEAD
+=======
+div {
+  padding: 0;
+}
+
+.menu-group-title {
+  color: $p-primary;
+}
+
+.btn-primary {
+  background-color: $p-primary;
+  border-color: $p-primary;
+}
+
+.btn-outline-primary {
+  color: $p-primary;
+  border-color: $p-primary;
+}
+
+.jumbotron {
+  background-color: $white;
+  border-bottom: 4px solid $black;
+}
+
+.nav-link {
+  color: $body-color;
+}
+
+.navbar {
+  background-color: $p-primary;
+}
+
+.sidebar {
+  border-right: 1px solid #d8d8d8;
+  padding: 0;
+}
+
+.div-sidebar {
+  padding-bottom: 15px;
+  padding-left: 15px;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.p-4 {
+  padding: 1.5rem 1.5rem 1.5rem 0;
+}
+
+.table-bordered,
+.table-bordered th,
+.table-bordered td {
+  border: none;
+}
+
+.table-bordered thead {
+  // width: 100%;
+  border-top: 2px solid $body-color;
+  border-bottom: 2px solid $body-color;
+  border-collapse: collapse;
+}
+
+.table-bordered td {
+  border-top: 1px solid $body-color;
+  border-bottom: 1px solid $body-color;
+}
+
+table a {
+  color: $body-color;
+}
+
+// dundu
+
+.bitmap {
+  width: 206px;
+  height: 48px;
+  object-fit: contain;
+  margin-left: 40px;
+}
+
+.navbar-nav {
+  flex-direction: row;
+}
+
+.text-nowrap {
+  padding-left: 6px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #ffffff;
+}
+
+.navbar-nav {
+  margin-right: 216px;
+}
+
+.nav-icon {
+  object-fit: contain;
+  background-color: #ffffff;
+  margin: 0.7rem 0px 1rem 0px;
+}
+
+.nav-hr {
+  width: 1px;
+  height: 16px;
+  opacity: 0.5;
+  background-color: #ffffff;
+  margin: 0.7rem 16px 1rem 16px;
+}
+
+.sidebar-sticky {
+  margin-top: 48px;
+}
+>>>>>>> [관리자] 3차 퍼블리싱 - 메뉴 사이드바
