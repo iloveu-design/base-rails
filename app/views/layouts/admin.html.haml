@@ -18,13 +18,13 @@
         = image_tag 'bitmap.png', class: 'bitmap'
       %ul.navbar-nav.px-3
         %li.nav-item.text-nowrap
-          = image_tag 'home.png', class: 'nav-icon'
+          = image_tag 'home.png', class: 'home'
         %li.nav-item.text-nowrap
           %a.nav-link{:href => "#"} 홈페이지로 가기
         %li.nav-item.text-nowrap
           %div.nav-hr
         %li.nav-item.text-nowrap
-          = image_tag 'logout.png', class: 'nav-icon'
+          = image_tag 'logout.png', class: 'logout'
         %li.nav-item.text-nowrap
           - if user_signed_in?
             = link_to '로그아웃', destroy_user_session_path, class: "nav-link", method: :delete
