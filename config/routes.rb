@@ -51,6 +51,9 @@ Rails.application.routes.draw do
   namespace :admin, path: 'radmin' do
     root 'subscriptions#index'
 
+    get 'base-style', :to => "pages#base_style"
+
+
     resources :users do
       collection do
         get :hibernated
