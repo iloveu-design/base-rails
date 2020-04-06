@@ -56,8 +56,7 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
 # excel
-gem 'axlsx', '2.1.0.pre'
-gem 'axlsx_rails'
+gem 'caxlsx_rails'
 
 # jobs
 gem 'sidekiq', '~> 4.1'
