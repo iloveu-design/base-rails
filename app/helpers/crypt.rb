@@ -9,7 +9,15 @@ module Crypt
     end
 
     def encryption_key
-      ENV['ENCRYPTION_KEY'] || 'slowalk'
+      key = ENV['ENCRYPTION_KEY']
+
+      if Rails.env.development? && !key.present?
+        key = 'slowalk'
+      end
+
+      raise "Error: no encryption key found." unless key.present?
+
+      key
     end
 
     ALGO = 'aes-256-cbc'.freeze
