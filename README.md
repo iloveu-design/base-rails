@@ -5,15 +5,15 @@ http://rails.ufosoft.net
 
 ## 개발환경 구축
 
-rbenv로 ruby 2.6.3을 설치합니다. rbenv가 설치되어 있지 않으면 [개발환경가이드](https://slowalk.parti.xyz/posts/29763)를 참고합니다.
+rbenv로 ruby 2.6.5을 설치합니다. rbenv가 설치되어 있지 않으면 [개발환경가이드](https://slowalk.parti.xyz/posts/29763)를 참고합니다.
 
 ```
-rbenv install 2.6.3
+rbenv install 2.6.5
 ```
 
 설치되지 않을 경우 
 ```
-RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)" rbenv install  2.6.3
+RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)" rbenv install  2.6.5
 ```
 
 
