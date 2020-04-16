@@ -8,4 +8,4 @@
           = render 'following_button', other: user
         .mr-2
           #{user.followings.count} followings, #{user.followers.count} followers
-  = paginate @users, theme: 'custom_theme'
+  = paginate @users, theme: 'admin'

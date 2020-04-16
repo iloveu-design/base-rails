@@ -44,7 +44,7 @@
     .container-fluid
       .row.flex-xl-nowrap
         = render 'admin_sidebar'
-        %main.col-md-9.col-xl-10.py-md-3.pl-md-5.bd-content{:role => "main"}
+        %main.col-md-9.col-xl-10.py-md-3.bd-content{:role => "main"}
           - if notice
             .alert.alert-success.alert-dismissible.position-absolute{ role: 'alert', style: 'width: 100%' }= notice
           - if alert
