@@ -12,6 +12,7 @@
 //= require rails_sortable
 //= require summernote/summernote-bs4.min
 //= require summernote-image-title
+//= require summernote-video-attributes
 //= require summernote-slowalk
 //= require turbolinks
 //= require jquery.blockUI
