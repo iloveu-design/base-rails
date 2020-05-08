@@ -11,10 +11,14 @@ class Space < ApplicationRecord
   validates :name, presence: true
 
   def cover_image_path(size)
-    image_key = self.image.key
-    image_location_on_disk = ActiveStorage::Blob.service.path_for(image_key)
-    if self.image.attached? && File.exist?(image_location_on_disk)
-      Rails.application.routes.url_helpers.rails_representation_url(self.image.variant(resize: size).processed, only_path: true)
+    if self.image.attached? 
+      image_key = self.image.key
+      image_location_on_disk = ActiveStorage::Blob.service.path_for(image_key)
+      if File.exist?(image_location_on_disk)
+        Rails.application.routes.url_helpers.rails_representation_url(self.image.variant(resize: size).processed, only_path: true)
+      else  
+        ActionController::Base.helpers.image_url('og.png')
+      end
     else  
       ActionController::Base.helpers.image_url('og.png')
     end
