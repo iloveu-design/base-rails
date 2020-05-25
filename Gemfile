@@ -67,12 +67,12 @@ gem 'sidekiq-unique-jobs', '~> 4.0', '>= 4.0.16'
 gem 'capistrano-sidekiq'
 
 # Use Capistrano for deployment
-gem 'unicorn'
-gem 'capistrano', '~> 3.6'
-gem 'capistrano-bundler', '~> 1.6'
-gem 'capistrano-rails', '~> 1.1'
-gem 'capistrano-rbenv', '~> 2.0'
-gem 'capistrano-unicorn-nginx', '~> 4.1.0'
+# gem 'unicorn'
+# gem 'capistrano', '~> 3.6'
+# gem 'capistrano-bundler', '~> 1.6'
+# gem 'capistrano-rails', '~> 1.1'
+# gem 'capistrano-rbenv', '~> 2.0'
+# gem 'capistrano-unicorn-nginx', '~> 4.1.0'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
@@ -96,6 +96,13 @@ group :development, :staging do
   gem 'letter_opener_web'
   gem 'dotenv-rails'
   gem 'faker', '~> 1.7.3'
+
+  gem 'unicorn'
+  gem 'capistrano', '~> 3.6'
+  gem 'capistrano-bundler', '~> 1.6'
+  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-rbenv', '~> 2.0'
+  gem 'capistrano-unicorn-nginx', '~> 4.1.0'
 end
 
 group :development, :test do
@@ -110,6 +117,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 end
 
 group :test do
@@ -121,4 +129,3 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
