@@ -34,6 +34,14 @@ bundle config --local build.mysql2 "--with-ldflags=-L/usr/local/opt/openssl/lib 
 * try 3
 ```
 gem install mysql2 -v '0.5.2' -- --with-cflags=\"-I/usr/local/opt/openssl/include\" --with-ldflags=\"-L/usr/local/opt/openssl/lib\"
+
+```
+* try 4
+```
+gem install mysql2 -v 'YOUR.VERSION.HERE' -- --with-mysql-config=/usr/local/opt/mysql-client/bin/mysql_config \
+                 --srcdir=/usr/local/opt/mysql/include --platform=ruby \
+                 --with-ldflags=-L/usr/local/opt/openssl/lib \
+                 --with-cppflags=-I/usr/local/opt/openssl/include
 ```
 프로젝트를 복사하고 해당 디렉토리로 들어가서 데이터베이스를 생성합니다.
 
