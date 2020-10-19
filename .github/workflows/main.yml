@@ -24,7 +24,7 @@ jobs:
       run: sudo apt-get install libsqlite3-dev
       
     - name: webfactory/ssh-agent
-      uses: webfactory/ssh-agent@v0.2.0
+      uses: webfactory/ssh-agent@v0.4.1
       with:
         # Private SSH key to register in the SSH agent
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
